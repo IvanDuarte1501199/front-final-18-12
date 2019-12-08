@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">AcmeB&B</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="pantalla-login">Inicio de Sesión</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="personas-list">Listado de Personas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div style="margin: 50px; ">
+    <div style="border: solid; margin: 0px 700px;">
+        <div class="form-group">
+            <label class="col-form-label" for="inputDefault">Ingrese su Identificacion</label>
+            <input type="text" class="form-control" placeholder="ID" id="inputDefault">
+        </div>
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-primary" (click)="VerificarId(inputDefault)">Primary</button>
+        </div>
+    </div>
+
+</div>
