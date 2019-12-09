@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
 
 @Component({
   selector: 'app-pantalla-login',
@@ -7,15 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PantallaLoginComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  entro: boolean = false;
+
+  constructor(private _personasRepoService: PersonasRepoService) {
+    _personasRepoService.getAllPersonas();
+  }
 
   ngOnInit() {
   }
 
-  VerificarId(id: number) {
-    //si la id es un tipo cliente te redirige a pantalla-principal-cliente
-    //si la id es un tipo cliente te redirige a pantalla-principal-duenio
-    //si la id no esta en ninguno console.log("Id no encontrada en el sistema")
-   
+  VerificarId() {
+    console.log(this.id);
+    this.entro = false;
+    if (this.id == null) {
+      alert('Ingrese una Identificacion');
+    } else {
+      this._personasRepoService.listadoPersonas.forEach(element => {
+        if (this.id == element.dni) {
+          localStorage.setItem('id', element.id.toString() );
+          if (element.tipo == 'Cliente') {
+            //Redireccion a app-pantalla-principal-cliente 
+            window.location.href = '/pantalla-principal-cliente';
+            this.entro = true;
+          } else {
+            //Redireccion a app-pantalla-principal-duenio
+            window.location.href = '/pantalla-principal-duenio';
+            this.entro = true;
+          }
+        }
+      });
+    }
+    if (this.entro == false) {
+      alert('Ingrese una Identificacion correcta');
+    }
+
   }
 }

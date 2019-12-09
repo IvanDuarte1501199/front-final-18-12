@@ -1,0 +1,73 @@
+{
+  "personas": [
+    {
+      "id": 1,
+      "nombre": "ivan",
+      "apellido": "duarte",
+      "dni": "241414214",
+      "tipo": "Dueño",
+      "fechaNacimiento": "1999-01-15"
+    },
+    {
+      "id": 2,
+      "nombre": "nahuel",
+      "apellido": "kliphan",
+      "dni": "4512512",
+      "tipo": "Cliente",
+      "fechaNacimiento": "1998-02-10"
+    },
+    {
+      "id": 3,
+      "nombre": "Juan",
+      "apellido": "Heis",
+      "dni": "515124521",
+      "tipo": "Dueño",
+      "fechaNacimiento": "1990-10-10"
+    },
+    {
+      "id": 5,
+      "nombre": "fsadffsafasf",
+      "apellido": "fasfsafsafsa",
+      "dni": "24141",
+      "tipo": "Dueño",
+      "fechaNacimiento": "1111-11-11"
+    },
+    {
+      "id": 6,
+      "nombre": "Loquito",
+      "apellido": "LOCO",
+      "dni": "24141",
+      "tipo": "Cliente",
+      "fechaNacimiento": "14123-04-11"
+    }
+  ],
+  "propiedades": [
+    {
+      "id": 1,
+      "nombre": "CAsa",
+      "ubicacion": "ramirez 412",
+      "descripcion": "4 habitaciones",
+      "notas": "esta un poco rota dsad",
+      "precioXdia": "5002",
+      "dueñoId": 1
+    },
+    {
+      "id": 2,
+      "nombre": "otra casa del 1",
+      "ubicacion": "gfdsa",
+      "descripcion": "gdfsfq",
+      "notas": "gdfsgfwe",
+      "precioXdia": "4123",
+      "dueñoId": 1
+    },
+    {
+      "id": 3,
+      "nombre": "propiedad de heis",
+      "ubicacion": "fasd",
+      "descripcion": "gsdfv",
+      "notas": "5235",
+      "precioXdia": "421321",
+      "dueñoId": 3
+    }
+  ]
+}

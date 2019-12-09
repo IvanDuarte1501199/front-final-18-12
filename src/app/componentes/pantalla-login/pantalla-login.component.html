@@ -15,15 +15,19 @@
         </ul>
     </div>
 </nav>
-<div style="margin: 50px; ">
-    <div style="border: solid; margin: 0px 700px;">
+<br>
+<br>
+<div class="row">
+    <div class="form-group col-4">
+
+    </div>
+    <div style="border: solid;" class="form-group col-4">
         <div class="form-group">
-            <label class="col-form-label" for="inputDefault">Ingrese su Identificacion</label>
-            <input type="text" class="form-control" placeholder="ID" id="inputDefault">
+            <label class="col-form-label" for="inputDefault">Ingrese su Dni</label>
+            <input type="text" class="form-control" [(ngModel)]="id" placeholder="ID" id="inputDefault">
         </div>
         <div style="text-align: center;">
-            <button type="button" class="btn btn-primary" (click)="VerificarId(inputDefault)">Primary</button>
+            <button type="button" class="btn btn-primary" (click)="VerificarId()">Acceder</button>
         </div>
     </div>
-
 </div>

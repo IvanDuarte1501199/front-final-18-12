@@ -1,1 +1,55 @@
-<p>propiedades-form works!</p>
+<h1 style="text-align: center;">Nueva Propiedad</h1>
+
+
+<div class="row" >
+    <div  class="form-group col-4">
+
+    </div>
+
+    <form (ngSubmit)="grabarPropiedad()" class="form-group col-4">
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+            </div>
+            <input name="propiedad" [(ngModel)]="nuevaPropiedad.nombre" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Ubicacion</span>
+            </div>
+            <input name="propiedad" [(ngModel)]="nuevaPropiedad.ubicacion" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Descripcion</span>
+            </div>
+            <input name="propiedad" [(ngModel)]="nuevaPropiedad.descripcion" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Notas</span>
+            </div>
+            <textarea class="form-control" name="propiedadNotas" rows="3" [(ngModel)]="nuevaPropiedad.notas"></textarea>
+        </div>
+
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Precio (por día)</span>
+            </div>
+            <input name="propiedad" [(ngModel)]="nuevaPropiedad.precioXdia" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <button class="btn btn-success">Grabar</button><br>
+
+    </form>
+</div>

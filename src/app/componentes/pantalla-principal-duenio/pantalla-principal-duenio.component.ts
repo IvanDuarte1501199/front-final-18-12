@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pantalla-principal-duenio.component.css']
 })
 export class PantallaPrincipalDuenioComponent implements OnInit {
-
-  constructor() { }
+  perfil: boolean;
+  propiedades: boolean;
+  constructor() {
+    this.perfil = false;
+    this.propiedades = false;
+  }
 
   ngOnInit() {
   }
-
+  verPerfil() {
+    this.perfil = true;
+    this.propiedades = false;
+  }
+  verPropiedades() {
+    this.perfil = false;
+    this.propiedades = true;
+  }
 }

@@ -17,6 +17,7 @@ import { PantallaPrincipalDuenioComponent } from './componentes/pantalla-princip
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { PersonasFormComponent } from './componentes/personas-form/personas-form.component';
 import { PersonasListComponent } from './componentes/personas-list/personas-list.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 const rutas: Routes = [
   { path: 'ropiedades-list', component: PropiedadesListComponent },
@@ -28,6 +29,7 @@ const rutas: Routes = [
   { path: 'pantalla-principal-duenio', component: PantallaPrincipalDuenioComponent },
   { path: 'personas-list', component: PersonasListComponent },
   { path: 'personas-form', component: PersonasFormComponent },
+  { path: 'perfil', component: PerfilComponent },
   { path: '', component: PantallaPrincipalComponent }
 ];
 
@@ -43,7 +45,8 @@ const rutas: Routes = [
     PantallaPrincipalDuenioComponent,
     PantallaPrincipalComponent,
     PersonasFormComponent,
-    PersonasListComponent
+    PersonasListComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
