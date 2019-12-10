@@ -18,7 +18,9 @@ import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pan
 import { PersonasFormComponent } from './componentes/personas-form/personas-form.component';
 import { PersonasListComponent } from './componentes/personas-list/personas-list.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
-
+import { Buscar } from './pipes/buscador';
+import { FilterPipe } from './pipes/filtrador';
+import { ArraySortPipe } from './pipes/ordenador';
 const rutas: Routes = [
   { path: 'ropiedades-list', component: PropiedadesListComponent },
   { path: 'propiedades-form', component: PropiedadesFormComponent },
@@ -46,7 +48,10 @@ const rutas: Routes = [
     PantallaPrincipalComponent,
     PersonasFormComponent,
     PersonasListComponent,
-    PerfilComponent
+    PerfilComponent,
+    Buscar,
+    FilterPipe,
+    ArraySortPipe
   ],
   imports: [
     BrowserModule,

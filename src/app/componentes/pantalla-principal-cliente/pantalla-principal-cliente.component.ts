@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PantallaPrincipalClienteComponent implements OnInit {
   perfil: boolean;
+  departamentos: boolean;
   constructor() {
     this.perfil = false;
    }
@@ -15,6 +16,11 @@ export class PantallaPrincipalClienteComponent implements OnInit {
   }
 
   verPerfil() {
+    this.departamentos = false;
     this.perfil = true;
+  }
+  verDepartamentos() {
+    this.departamentos = true;
+    this.perfil = false;
   }
 }
