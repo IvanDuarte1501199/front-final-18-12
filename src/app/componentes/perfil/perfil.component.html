@@ -2,34 +2,64 @@
 <div>
     <div class="row">
         <div class="form-group col-3">
-            <b> ¡BIENVENIDO!  {{ personaAmostrar.apellido }}, {{ personaAmostrar.nombre }}
+            <b> ¡BIENVENIDO! {{ personaAmostrar.apellido }}, {{ personaAmostrar.nombre }}
             </b>
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-3">
-            <button class="list-group-item list-group-item-action">
-                <b>Apellido:</b> {{ personaAmostrar.apellido }} <br>
-            </button>
-        </div>
 
-        <div class="form-group col-3">
-            <button class="list-group-item list-group-item-action">
-                <b>Nombre:</b> {{ personaAmostrar.nombre }} <br>
-            </button>
+        <div class="form-group col-4">
+
+        </div>
+        <div class="form-group col-4">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">DNI</span>
+                </div>
+                <input ng-readonly="edicion == false"  name="personaDni" [readonly]="!edicion"
+                    [(ngModel)]="personaAmostrar.dni" type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                </div>
+                <input ng-readonly="edicion == true" name="personaNombre" [readonly]="!edicion"
+                    [(ngModel)]="personaAmostrar.nombre" type="text" class="form-control"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+                </div>
+                <input name="personaApellido" [(ngModel)]="personaAmostrar.apellido" [readonly]="!edicion" type="text" class="form-control"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Nacimiento</span>
+                </div>
+                <input name="personaFechaNacimiento" [(ngModel)]="personaAmostrar.fechaNacimiento" [readonly]="!edicion" type="date"
+                    class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                </div>
+                <select [disabled]="!edicion" class="custom-select" name="personaTipo" id="inputGroupSelect01"
+                    [(ngModel)]="personaAmostrar.tipo">
+                    <option [ngValue]="null" disabled>Seleccione su Rol</option>
+                    <option value="Dueño">Dueño</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
+            </div>
+            <button class="btn btn-warning" *ngIf="edicion == false" (click)="modoEdicion()">Editar</button>
+            <button class="btn btn-warning" *ngIf="edicion == true" (click)="editarPersona()">Confirmar</button>
         </div>
     </div>
-    <div class="row">
-            <div class="form-group col-3">
-                <button class="list-group-item list-group-item-action">
-                    <b>DNI:</b> {{ personaAmostrar.dni }} <br>
-                </button>
-            </div>
-    
-            <div class="form-group col-3">
-                <button class="list-group-item list-group-item-action">
-                    <b>Fecha de Nacimiento:</b> {{ personaAmostrar.fechaNacimiento | date: 'dd-MM-yyyy' }} <br>
-                </button>
-            </div>
-        </div>
 </div>
+
+{{edicion}}

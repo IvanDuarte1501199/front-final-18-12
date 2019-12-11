@@ -10,17 +10,39 @@ import { Persona } from 'src/app/models/Persona';
 export class PerfilComponent implements OnInit {
 
   personaAmostrar: Persona = new Persona('', '', null, null, '');
-
-  constructor(private _personasRepoService: PersonasRepoService) {
-    _personasRepoService.getAllPersonas();
-    this._personasRepoService.getPersonaById(Number(localStorage.getItem('id')))
-      .subscribe(
-        (per) => {
-          this.personaAmostrar = per;
-        }
-      );
-
+  edicion: boolean = false;
+  constructor(private _personaRepoService: PersonasRepoService) {
+    _personaRepoService.getAllPersonas();
+    if (Number(localStorage.getItem('id')) > 0 ) {
+      
+    }else{
+      window.location.href = '';
+    }
+    this.getPersonaAmostrar()
   }
-
-  ngOnInit() {}
+  modoEdicion() {
+    this.edicion = true;
   }
+  editarPersona() {
+    this.edicion = false; 
+    this._personaRepoService.actualizarPersona(this.personaAmostrar)
+    .subscribe(
+      (response) => {
+        this.edicion = false;
+        this.personaAmostrar =new Persona('','',null,null,'');
+        this._personaRepoService.getAllPersonas();
+        this.getPersonaAmostrar()
+      }
+    );
+  }
+  getPersonaAmostrar() {
+    this._personaRepoService.getPersonaById(Number(localStorage.getItem('id')))
+    .subscribe(
+      (per) => {
+        this.personaAmostrar = per;
+      }
+    );
+  } 
+
+  ngOnInit() { }
+}
