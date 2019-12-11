@@ -14,9 +14,6 @@ export class PropiedadesListComponent implements OnInit {
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
     this._propiedadesRepoService.getAllPropiedadesXduenio(Number(localStorage.getItem('id')));
-     
-
-
   }
 
   ngOnInit() {

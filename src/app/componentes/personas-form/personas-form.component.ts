@@ -8,13 +8,14 @@ import { Persona } from 'src/app/models/Persona';
   styleUrls: ['./personas-form.component.css']
 })
 export class PersonasFormComponent implements OnInit {
-
+  
   nuevaPersona: Persona = new Persona('','',null,null,'');
   edicion: boolean = false;
   constructor(private _personaRepoService: PersonasRepoService) { }
-
+  
   ngOnInit() {
   }
+  
   grabarPersona() {
     if (this.edicion) {
       this._personaRepoService.actualizarPersona(this.nuevaPersona)
@@ -44,4 +45,5 @@ export class PersonasFormComponent implements OnInit {
         }
       );
   }
+  
 }

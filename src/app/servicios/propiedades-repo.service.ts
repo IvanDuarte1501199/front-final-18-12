@@ -9,6 +9,7 @@ export class PropiedadesRepoService {
 
   listadoPropiedades: Propiedad[] = [];
   listadoPropiedadesXduenio: Propiedad[] = [];
+  listadoPropiedadesDisponibles: Propiedad[] = [];
   constructor(private _httpClient: HttpClient) { }
 
   getAllPropiedades() {
@@ -23,15 +24,31 @@ export class PropiedadesRepoService {
       .subscribe(
         (data) => {
           data.forEach(element => {
-            if(element.dueñoId == id) {
+            if (element.dueñoId == id) {
               this.listadoPropiedadesXduenio.push(element);
-            } 
+            }
           });
-          
+
         }
       );
   }
 
+  getAllPropiedadesDisponibles() {
+    this.listadoPropiedadesDisponibles = [];
+    this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
+      .subscribe(
+        (data) => {
+          data.forEach(element => {
+            if (element.disponible ==  true) {
+              this.listadoPropiedadesDisponibles.push(element);
+            }
+          });
+
+        }
+      );
+
+
+  }
   getPropiedadById(propiedadId: number) {
     return this._httpClient.get<Propiedad>(`http://localhost:3000/propiedades/${propiedadId}`);
   }
@@ -47,5 +64,7 @@ export class PropiedadesRepoService {
   actualizaPropiedad(propiedad: Propiedad) {
     return this._httpClient.put(`http://localhost:3000/propiedades/${propiedad.id}`, propiedad);
   }
+
+
 
 }

@@ -10,7 +10,7 @@
                 <a class="nav-link" (click)="verDepartamentos()">Departamentos Disponibles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mis Alquileres</a>
+                <a class="nav-link" href="verAlquileres()">Mis Alquileres</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="verPerfil()">Perfil</a>
@@ -24,6 +24,7 @@
 <div *ngIf="departamentos">
     <div>
         <h1 style="text-align: center;">LISTA PROPIEDADES</h1>
+        
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -35,14 +36,21 @@
             </thead>
 
             <tbody>
-                <tr class="table-primary" *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedadesXduenio">
+
+
+                <tr class="table-primary"
+                    *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedadesDisponibles">
                     <th scope="row">{{ propiedad.nombre }}</th>
                     <td>{{ propiedad.ubicacion }}</td>
                     <td>{{ propiedad.descripcion }}</td>
                     <td>{{ propiedad.precioXdia }}</td>
+                    <td class="btn btn-warning">Alquilar Propiedad</td>
                 </tr>
             </tbody>
 
         </table>
     </div>
+</div>
+<div *ngIf="alquileres">
+    <app-alquileres-list></app-alquileres-list>
 </div>

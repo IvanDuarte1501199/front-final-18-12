@@ -31,43 +31,38 @@
       "dni": "24141",
       "tipo": "Dueño",
       "fechaNacimiento": "1111-11-11"
-    },
-    {
-      "id": 6,
-      "nombre": "Loquito",
-      "apellido": "LOCO",
-      "dni": "24141",
-      "tipo": "Cliente",
-      "fechaNacimiento": "14123-04-11"
     }
   ],
   "propiedades": [
     {
       "id": 1,
-      "nombre": "CAsa",
-      "ubicacion": "ramirez 412",
-      "descripcion": "4 habitaciones",
-      "notas": "esta un poco rota dsad",
-      "precioXdia": "5002",
-      "dueñoId": 1
+      "nombre": "casa domicio",
+      "ubicacion": "eofjdsa421",
+      "descripcion": "jgmspo",
+      "notas": " gkjfodskf",
+      "precioXdia": "41",
+      "dueñoId": 1,
+      "disponible": true
     },
     {
       "id": 2,
-      "nombre": "otra casa del 1",
-      "ubicacion": "gfdsa",
-      "descripcion": "gdfsfq",
-      "notas": "gdfsgfwe",
-      "precioXdia": "4123",
-      "dueñoId": 1
+      "nombre": "otro domicilio embrujado",
+      "ubicacion": "kjodsaf",
+      "descripcion": "451243",
+      "notas": "idfsaodasj",
+      "precioXdia": "421421",
+      "dueñoId": 1,
+      "disponible": true
     },
     {
       "id": 3,
-      "nombre": "propiedad de heis",
-      "ubicacion": "fasd",
-      "descripcion": "gsdfv",
-      "notas": "5235",
-      "precioXdia": "421321",
-      "dueñoId": 3
+      "nombre": "una propiedad grande",
+      "ubicacion": "ramirez 420",
+      "descripcion": "casa embrujada",
+      "notas": "jtfodsajf",
+      "precioXdia": "34",
+      "dueñoId": 3,
+      "disponible": true
     }
   ]
 }

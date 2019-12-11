@@ -5,7 +5,7 @@ export class Persona {
     dni: number;
     fechaNacimiento: Date;
     tipo: string;
-    constructor (nombre: string, apellido: string, dni: number,fechaNacimiento: Date, tipo: string) {
+    constructor(nombre: string, apellido: string, dni: number,fechaNacimiento: Date, tipo: string) {
         this.id = this.id++;
         this.nombre = nombre; 
         this.apellido = apellido;

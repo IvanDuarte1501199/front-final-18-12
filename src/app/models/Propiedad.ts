@@ -6,7 +6,7 @@ export class Propiedad {
     notas: string;
     precioXdia: number;
     dueñoId: number;
-    ocupado: boolean;
+    disponible: boolean;
     constructor(nombre: string, ubicacion: string, descripcion: string, notas: string, precioXdia: number, dueñoId: number) {
         this.id = this.id++;
         this.nombre = nombre;
@@ -15,6 +15,6 @@ export class Propiedad {
         this.notas = notas;
         this.precioXdia = precioXdia;
         this.dueñoId = dueñoId;
-        this.ocupado = false;
+        this.disponible = true;
     }
 }
