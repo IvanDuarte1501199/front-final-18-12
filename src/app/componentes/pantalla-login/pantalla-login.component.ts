@@ -13,6 +13,7 @@ export class PantallaLoginComponent implements OnInit {
 
   constructor(private _personasRepoService: PersonasRepoService) {
     _personasRepoService.getAllPersonas();
+
   }
 
   ngOnInit() {
@@ -26,14 +27,15 @@ export class PantallaLoginComponent implements OnInit {
     } else {
       this._personasRepoService.listadoPersonas.forEach(element => {
         if (this.id == element.dni) {
-          localStorage.setItem('id', element.id.toString() );
+          localStorage.setItem('id', element.id.toString());
+          localStorage.setItem('tipo', element.tipo.toString());
           if (element.tipo == 'Cliente') {
-            //Redireccion a app-pantalla-principal-cliente 
-            window.location.href = '/pantalla-principal-cliente';
+            //Redireccion a app-pantalla-principal-cliente
+            window.location.href = '';
             this.entro = true;
           } else {
             //Redireccion a app-pantalla-principal-duenio
-            window.location.href = '/pantalla-principal-duenio';
+            window.location.href = '';
             this.entro = true;
           }
         }

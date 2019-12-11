@@ -11,9 +11,21 @@ import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
 export class PropiedadesListComponent implements OnInit {
 
   propiedadSeleccionada: Propiedad;
+  tipo: string;
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
     this._propiedadesRepoService.getAllPropiedadesXduenio(Number(localStorage.getItem('id')));
+    this._propiedadesRepoService.getAllPropiedadesDisponibles();
+   
+    if (localStorage.getItem('tipo') == null) {
+      this.tipo = null;
+    }
+    if (localStorage.getItem('tipo') == 'Dueño') {
+      this.tipo = 'Dueño';
+    }
+    if (localStorage.getItem('tipo') == 'Cliente') {
+      this.tipo = 'Cliente';
+    }
   }
 
   ngOnInit() {

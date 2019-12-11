@@ -10,7 +10,9 @@ export class PropiedadesRepoService {
   listadoPropiedades: Propiedad[] = [];
   listadoPropiedadesXduenio: Propiedad[] = [];
   listadoPropiedadesDisponibles: Propiedad[] = [];
-  constructor(private _httpClient: HttpClient) { }
+
+  constructor(private _httpClient: HttpClient) {
+  }
 
   getAllPropiedades() {
     this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
@@ -39,7 +41,7 @@ export class PropiedadesRepoService {
       .subscribe(
         (data) => {
           data.forEach(element => {
-            if (element.disponible ==  true) {
+            if (element.disponible == true) {
               this.listadoPropiedadesDisponibles.push(element);
             }
           });

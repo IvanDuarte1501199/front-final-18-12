@@ -12,8 +12,6 @@ import { PropiedadesFormComponent } from './componentes/propiedades-form/propied
 import { AlquileresListComponent } from './componentes/alquileres-list/alquileres-list.component';
 import { AlquileresFormComponent } from './componentes/alquileres-form/alquileres-form.component';
 import { PantallaLoginComponent } from './componentes/pantalla-login/pantalla-login.component';
-import { PantallaPrincipalClienteComponent } from './componentes/pantalla-principal-cliente/pantalla-principal-cliente.component';
-import { PantallaPrincipalDuenioComponent } from './componentes/pantalla-principal-duenio/pantalla-principal-duenio.component';
 import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
 import { PersonasFormComponent } from './componentes/personas-form/personas-form.component';
 import { PersonasListComponent } from './componentes/personas-list/personas-list.component';
@@ -21,14 +19,13 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { Buscar } from './pipes/buscador';
 import { FilterPipe } from './pipes/filtrador';
 import { ArraySortPipe } from './pipes/ordenador';
+import { NavVarComponent } from './nav-var/nav-var.component';
 const rutas: Routes = [
-  { path: 'ropiedades-list', component: PropiedadesListComponent },
+  { path: 'propiedades-list', component: PropiedadesListComponent },
   { path: 'propiedades-form', component: PropiedadesFormComponent },
   { path: 'alquileres-list', component: AlquileresListComponent },
   { path: 'alquileres-form', component: AlquileresFormComponent },
   { path: 'pantalla-login', component: PantallaLoginComponent },
-  { path: 'pantalla-principal-cliente', component: PantallaPrincipalClienteComponent },
-  { path: 'pantalla-principal-duenio', component: PantallaPrincipalDuenioComponent },
   { path: 'personas-list', component: PersonasListComponent },
   { path: 'personas-form', component: PersonasFormComponent },
   { path: 'perfil', component: PerfilComponent },
@@ -43,15 +40,14 @@ const rutas: Routes = [
     AlquileresListComponent,
     AlquileresFormComponent,
     PantallaLoginComponent,
-    PantallaPrincipalClienteComponent,
-    PantallaPrincipalDuenioComponent,
     PantallaPrincipalComponent,
     PersonasFormComponent,
     PersonasListComponent,
     PerfilComponent,
     Buscar,
     FilterPipe,
-    ArraySortPipe
+    ArraySortPipe,
+    NavVarComponent
   ],
   imports: [
     BrowserModule,
