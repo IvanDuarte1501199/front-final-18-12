@@ -2,8 +2,8 @@
   "personas": [
     {
       "id": 1,
-      "nombre": "ivandsfdasfas4222",
-      "apellido": "duarteedsadasd",
+      "nombre": "Ivan",
+      "apellido": "Duarte",
       "dni": "222141242421421",
       "tipo": "Dueño",
       "fechaNacimiento": "1999-01-15"
@@ -31,6 +31,14 @@
       "dni": "24141",
       "tipo": "Dueño",
       "fechaNacimiento": "1111-11-11"
+    },
+    {
+      "id": 6,
+      "nombre": "222",
+      "apellido": "222",
+      "dni": "2222",
+      "fechaNacimiento": "1111-11-11",
+      "tipo": "Dueño"
     }
   ],
   "propiedades": [

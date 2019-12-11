@@ -21,7 +21,6 @@
                 <td>{{ persona.fechaNacimiento | date: 'dd-MM-yyyy' }}</td>
                 <td>{{ persona.tipo }}</td>
                 <td class="btn btn-danger" (click)="borrarPersona(persona.id)">Borrar</td>
-                <td class="btn btn-warning" (click)="formulario.editarPersona(persona.id)">Editar</td>
             </tr>
         </tbody>
 
