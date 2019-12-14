@@ -9,7 +9,6 @@ import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
 })
 export class PersonasListComponent implements OnInit {
 
-  busqueda: string = "";
   personaSeleccionada: Persona;
 
   constructor(private _personaRepoService: PersonasRepoService) {

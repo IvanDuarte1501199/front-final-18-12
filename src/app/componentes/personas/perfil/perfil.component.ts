@@ -8,41 +8,24 @@ import { Persona } from 'src/app/models/Persona';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-
-  personaAmostrar: Persona = new Persona('', '', null, null, '');
   edicion: boolean = false;
   constructor(private _personaRepoService: PersonasRepoService) {
     _personaRepoService.getAllPersonas();
-    if (Number(localStorage.getItem('id')) > 0 ) {
-      
-    }else{
-      window.location.href = '';
-    }
-    this.getPersonaAmostrar()
   }
   modoEdicion() {
     this.edicion = true;
   }
   editarPersona() {
     this.edicion = false; 
-    this._personaRepoService.actualizarPersona(this.personaAmostrar)
+    this._personaRepoService.actualizarPersona(this._personaRepoService.personaLogeada)
     .subscribe(
       (response) => {
         this.edicion = false;
-        this.personaAmostrar =new Persona('','',null,null,'');
         this._personaRepoService.getAllPersonas();
-        this.getPersonaAmostrar()
       }
     );
   }
-  getPersonaAmostrar() {
-    this._personaRepoService.getPersonaById(Number(localStorage.getItem('id')))
-    .subscribe(
-      (per) => {
-        this.personaAmostrar = per;
-      }
-    );
-  } 
+
 
   ngOnInit() { }
 }

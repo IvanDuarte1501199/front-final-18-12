@@ -1,0 +1,140 @@
+<br>
+<div class="row">
+    <div class="form-group col-1">
+        <div class="form-group col-4">
+            <p class="btn btn-info" routerLink="/propiedades-list">Atras</p>
+        </div>
+    </div>
+    <div class="form-group col-4">
+        <div class="mb-3">
+            <b style="text-align: center;">DETALLES DE LA PROPIEDAD</b>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+            </div>
+            <input [readonly]="true" name="propiedadNombre" [(ngModel)]="_propiedadRepoService.propiedadAmostrar.nombre"
+                type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Ubicacion</span>
+            </div>
+            <input [readonly]="true" name="propiedadUbicacion"
+                [(ngModel)]="_propiedadRepoService.propiedadAmostrar.ubicacion" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <!-- La propiedad si me deja mostrarla encima, y hago lo mismo practicamente -->
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Descripcion</span>
+            </div>
+            <input [readonly]="true" name="propiedadDescripcion"
+                [(ngModel)]="_propiedadRepoService.propiedadAmostrar.descripcion" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Notas</span>
+            </div>
+            <textarea [readonly]="true" class="form-control" name="propiedadNotas" rows="3"
+                [(ngModel)]="_propiedadRepoService.propiedadAmostrar.notas"></textarea>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Precio (por día)</span>
+            </div>
+            <input [readonly]="true" name="propiedadPrecio"
+                [(ngModel)]="_propiedadRepoService.propiedadAmostrar.precioXdia" type="text" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+    </div>
+
+
+    <div class="form-group col-4">
+        <div class="mb-3">
+            <b style="text-align: center;"> DATOS DEL DUEÑO</b>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">DNI</span>
+            </div>
+            <input [readonly]="true" name="personaDni" [(ngModel)]="_personaRepoService.personaAmostrar.dni" type="text"
+                class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+            </div>
+            <input [readonly]="true" name="personaNombre" [(ngModel)]="_personaRepoService.personaAmostrar.nombre"
+                type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+            </div>
+            <input [readonly]="true" name="personaApellido" [(ngModel)]="_personaRepoService.personaAmostrar.apellido"
+                type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Nacimiento</span>
+            </div>
+            <input [readonly]="true" name="personaFechaNacimiento"
+                [(ngModel)]="_personaRepoService.personaAmostrar.fechaNacimiento" type="date" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+    </div>
+
+
+
+</div>
+<div class="row">
+    <div class="form-group col-1"></div>
+    <div class="form-group col-4">
+        <div class="mb-3">
+            <b style="text-align: center;">DETALLES DEL ALQUILER</b>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Inicio</span>
+            </div>
+            <input [(ngModel)]="nuevoAlquiler.fechaInicio" name="alquilerFechaInicio" type="date" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Fin</span>
+            </div>
+            <input  [(ngModel)]="nuevoAlquiler.fechaFin" name="alquilerFechaFin" type="date" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+
+
+
+
+</div>
+<div class="row">
+    <div class="form-group col-1">
+
+    </div>
+    <div class="form-group col-4">
+        <p class="btn btn-success" routerLink="/propiedades-list"
+            (click)="alquilarPropiedad(_propiedadRepoService.propiedadAmostrar.id)">
+            Alquilar Propiedad</p>
+    </div>
+
+</div>

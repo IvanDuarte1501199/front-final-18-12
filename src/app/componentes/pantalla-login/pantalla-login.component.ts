@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ReflectiveInjector } from '@angular/core';
 import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
+import { BinaryOperatorExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-pantalla-login',
@@ -13,37 +14,27 @@ export class PantallaLoginComponent implements OnInit {
 
   constructor(private _personasRepoService: PersonasRepoService) {
     _personasRepoService.getAllPersonas();
-
   }
 
   ngOnInit() {
   }
 
   VerificarId() {
-    console.log(this.id);
     this.entro = false;
     if (this.id == null) {
       alert('Ingrese una Identificacion');
     } else {
       this._personasRepoService.listadoPersonas.forEach(element => {
         if (this.id == element.dni) {
-          localStorage.setItem('id', element.id.toString());
-          localStorage.setItem('tipo', element.tipo.toString());
-          if (element.tipo == 'Cliente') {
-            //Redireccion a app-pantalla-principal-cliente
-            window.location.href = '';
-            this.entro = true;
-          } else {
-            //Redireccion a app-pantalla-principal-duenio
-            window.location.href = '';
-            this.entro = true;
-          }
+          this.entro = true;
+          this._personasRepoService.personaLogeada = element;
         }
       });
+      if (this.entro == false) {
+        alert('Ingrese una Identificacion correcta');
+      }
     }
-    if (this.entro == false) {
-      alert('Ingrese una Identificacion correcta');
-    }
+
 
   }
 }

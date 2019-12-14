@@ -10,8 +10,10 @@ export class PropiedadesRepoService {
   listadoPropiedades: Propiedad[] = [];
   listadoPropiedadesXduenio: Propiedad[] = [];
   listadoPropiedadesDisponibles: Propiedad[] = [];
-
+  propiedadAmostrar: Propiedad = new Propiedad('','','','',null,null);
+  idTemp: number;
   constructor(private _httpClient: HttpClient) {
+    
   }
 
   getAllPropiedades() {
@@ -20,6 +22,7 @@ export class PropiedadesRepoService {
         (data) => this.listadoPropiedades = data
       );
   }
+
   getAllPropiedadesXduenio(id: number) {
     this.listadoPropiedadesXduenio = [];
     this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
@@ -48,8 +51,6 @@ export class PropiedadesRepoService {
 
         }
       );
-
-
   }
   getPropiedadById(propiedadId: number) {
     return this._httpClient.get<Propiedad>(`http://localhost:3000/propiedades/${propiedadId}`);

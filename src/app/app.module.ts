@@ -19,7 +19,14 @@ import { PerfilComponent } from './componentes/personas/perfil/perfil.component'
 import { Buscar } from './pipes/buscador';
 import { FilterPipe } from './pipes/filtrador';
 import { ArraySortPipe } from './pipes/ordenador';
-import { NavVarComponent } from './nav-var/nav-var.component';
+import { NavVarComponent } from './componentes/nav-var/nav-var.component';
+import { InfoPropiedadComponent } from './componentes/propiedades/info-propiedad/info-propiedad.component';
+import { PersonasRepoService } from './servicios/personas-repo.service';
+import { PropiedadesRepoService } from './servicios/propiedades-repo.service';
+import { AlquileresRepoService } from './servicios/alquileres-repo.service';
+import { CommonModule } from '@angular/common';
+
+
 const rutas: Routes = [
   { path: 'propiedades-list', component: PropiedadesListComponent },
   { path: 'propiedades-form', component: PropiedadesFormComponent },
@@ -29,33 +36,47 @@ const rutas: Routes = [
   { path: 'personas-list', component: PersonasListComponent },
   { path: 'personas-form', component: PersonasFormComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'info-propiedad', component: InfoPropiedadComponent },
   { path: '', component: PantallaPrincipalComponent }
 ];
+const componentes = [
+  AppComponent,
+  PropiedadesListComponent,
+  PropiedadesFormComponent,
+  AlquileresListComponent,
+  AlquileresFormComponent,
+  PantallaLoginComponent,
+  PantallaPrincipalComponent,
+  PersonasFormComponent,
+  PersonasListComponent,
+  PerfilComponent,
+  Buscar,
+  FilterPipe,
+  ArraySortPipe,
+  NavVarComponent,
+  InfoPropiedadComponent
+]
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PropiedadesListComponent,
-    PropiedadesFormComponent,
-    AlquileresListComponent,
-    AlquileresFormComponent,
-    PantallaLoginComponent,
-    PantallaPrincipalComponent,
-    PersonasFormComponent,
-    PersonasListComponent,
-    PerfilComponent,
-    Buscar,
-    FilterPipe,
-    ArraySortPipe,
-    NavVarComponent
-  ],
+  declarations: 
+    componentes,
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
+    BrowserModule,
     RouterModule.forRoot(rutas)
   ],
-  providers: [],
+  exports: [
+    ...componentes,
+    RouterModule
+  ],
+  providers: [
+    PersonasRepoService,
+    PropiedadesRepoService,
+    AlquileresRepoService,
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -10,35 +10,19 @@
     },
     {
       "id": 2,
-      "nombre": "nahuel",
-      "apellido": "kliphan",
+      "nombre": "nahueleee",
+      "apellido": "kliphaNN",
       "dni": "4512512",
       "tipo": "Cliente",
       "fechaNacimiento": "1998-02-10"
     },
     {
       "id": 3,
-      "nombre": "Juan",
-      "apellido": "Heis",
-      "dni": "515124521",
-      "tipo": "Dueño",
-      "fechaNacimiento": "1990-10-10"
-    },
-    {
-      "id": 5,
-      "nombre": "fsadffsafasf",
-      "apellido": "fasfsafsafsa",
-      "dni": "24141",
-      "tipo": "Dueño",
-      "fechaNacimiento": "1111-11-11"
-    },
-    {
-      "id": 6,
-      "nombre": "222",
-      "apellido": "222",
-      "dni": "2222",
-      "fechaNacimiento": "1111-11-11",
-      "tipo": "Dueño"
+      "nombre": "ivan",
+      "apellido": "duarte",
+      "dni": "11111",
+      "fechaNacimiento": "1999-11-15",
+      "tipo": "Cliente"
     }
   ],
   "propiedades": [
@@ -71,6 +55,24 @@
       "precioXdia": "34",
       "dueñoId": 3,
       "disponible": true
+    }
+  ],
+  "alquileres": [
+    {
+      "id": 1,
+      "fechaInicio": "1111-11-11",
+      "fechaFin": "2222-02-22",
+      "propiedadId": 3,
+      "clienteId": 2,
+      "porcentajeAcme": null
+    },
+    {
+      "id": 2,
+      "fechaInicio": "2222-02-22",
+      "fechaFin": "1111-11-11",
+      "propiedadId": 2,
+      "clienteId": 3,
+      "porcentajeAcme": null
     }
   ]
 }

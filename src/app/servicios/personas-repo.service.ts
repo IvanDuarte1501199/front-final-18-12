@@ -8,6 +8,8 @@ import { Persona } from '../models/Persona';
 export class PersonasRepoService {
 
   listadoPersonas: Persona[] = [];
+  personaAmostrar: Persona = new Persona('','',null,null,'');
+  personaLogeada: Persona = new Persona('','',null,null,'');
 
   constructor(private _httpClient: HttpClient) { }
 

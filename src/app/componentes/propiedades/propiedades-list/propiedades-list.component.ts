@@ -14,18 +14,9 @@ export class PropiedadesListComponent implements OnInit {
   tipo: string;
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
-    this._propiedadesRepoService.getAllPropiedadesXduenio(Number(localStorage.getItem('id')));
+    this._propiedadesRepoService.getAllPropiedadesXduenio(this._personasRepoService.personaLogeada.id);
     this._propiedadesRepoService.getAllPropiedadesDisponibles();
-   
-    if (localStorage.getItem('tipo') == null) {
-      this.tipo = null;
-    }
-    if (localStorage.getItem('tipo') == 'Dueño') {
-      this.tipo = 'Dueño';
-    }
-    if (localStorage.getItem('tipo') == 'Cliente') {
-      this.tipo = 'Cliente';
-    }
+    
   }
 
   ngOnInit() {
@@ -45,5 +36,20 @@ export class PropiedadesListComponent implements OnInit {
         console.log('se borro la persona ', response);
         this._propiedadesRepoService.getAllPropiedades();
       });
+  }
+
+  verInformacion(idPropiedad) { 
+    this._propiedadesRepoService.getPropiedadById(idPropiedad).subscribe(
+      (pro) => {
+        this._propiedadesRepoService.propiedadAmostrar = pro;
+        this._personasRepoService.getPersonaById(pro.dueñoId).subscribe(
+          (per) => {
+            this._personasRepoService.personaAmostrar = per;
+
+          }
+        )
+      }
+    )
+
   }
 }

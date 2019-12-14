@@ -5,7 +5,7 @@
 
         </div>
         <div class="form-group col-3">
-            <b> ¡BIENVENIDO!   {{ personaAmostrar.apellido }}, {{ personaAmostrar.nombre }}
+            <b> ¡BIENVENIDO!   {{ _personaRepoService.personaLogeada.apellido }}, {{ _personaRepoService.personaLogeada.nombre }}
             </b>
         </div>
     </div>
@@ -20,7 +20,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">DNI</span>
                 </div>
                 <input ng-readonly="edicion == false" name="personaDni" [readonly]="!edicion"
-                    [(ngModel)]="personaAmostrar.dni" type="text" class="form-control" aria-label="Sizing example input"
+                    [(ngModel)]="_personaRepoService.personaLogeada.dni" type="text" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-sm">
             </div>
 
@@ -29,7 +29,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
                 </div>
                 <input ng-readonly="edicion == true" name="personaNombre" [readonly]="!edicion"
-                    [(ngModel)]="personaAmostrar.nombre" type="text" class="form-control"
+                    [(ngModel)]="_personaRepoService.personaLogeada.nombre" type="text" class="form-control"
                     aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
             </div>
 
@@ -37,7 +37,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
                 </div>
-                <input name="personaApellido" [(ngModel)]="personaAmostrar.apellido" [readonly]="!edicion" type="text"
+                <input name="personaApellido" [(ngModel)]="_personaRepoService.personaLogeada.apellido" [readonly]="!edicion" type="text"
                     class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
             </div>
 
@@ -45,7 +45,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Nacimiento</span>
                 </div>
-                <input name="personaFechaNacimiento" [(ngModel)]="personaAmostrar.fechaNacimiento" [readonly]="!edicion"
+                <input name="personaFechaNacimiento" [(ngModel)]="_personaRepoService.personaLogeada.fechaNacimiento" [readonly]="!edicion"
                     type="date" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-sm">
             </div>
@@ -54,7 +54,7 @@
                     <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                 </div>
                 <select [disabled]="!edicion" class="custom-select" name="personaTipo" id="inputGroupSelect01"
-                    [(ngModel)]="personaAmostrar.tipo">
+                    [(ngModel)]="_personaRepoService.personaLogeada.tipo">
                     <option [ngValue]="null" disabled>Seleccione su Rol</option>
                     <option value="Dueño">Dueño</option>
                     <option value="Cliente">Cliente</option>
