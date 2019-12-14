@@ -4,27 +4,31 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { PropiedadesListComponent } from './componentes/propiedades/propiedades-list/propiedades-list.component';
-import { PropiedadesFormComponent } from './componentes/propiedades/propiedades-form/propiedades-form.component';
-import { AlquileresListComponent } from './componentes/alquileres/alquileres-list/alquileres-list.component';
-import { AlquileresFormComponent } from './componentes/alquileres/alquileres-form/alquileres-form.component';
-import { PantallaLoginComponent } from './componentes/pantalla-login/pantalla-login.component';
-import { PantallaPrincipalComponent } from './componentes/pantalla-principal/pantalla-principal.component';
+
 import { PersonasFormComponent } from './componentes/personas/personas-form/personas-form.component';
 import { PersonasListComponent } from './componentes/personas/personas-list/personas-list.component';
 import { PerfilComponent } from './componentes/personas/perfil/perfil.component';
-import { Buscar } from './pipes/buscador';
-import { FilterPipe } from './pipes/filtrador';
-import { ArraySortPipe } from './pipes/ordenador';
-import { NavVarComponent } from './componentes/nav-var/nav-var.component';
+
+import { PropiedadesListComponent } from './componentes/propiedades/propiedades-list/propiedades-list.component';
+import { PropiedadesFormComponent } from './componentes/propiedades/propiedades-form/propiedades-form.component';
 import { InfoPropiedadComponent } from './componentes/propiedades/info-propiedad/info-propiedad.component';
+
+import { AlquileresListComponent } from './componentes/alquileres/alquileres-list/alquileres-list.component';
+import { AlquileresFormComponent } from './componentes/alquileres/alquileres-form/alquileres-form.component';
+
+import { NavVarComponent } from './componentes/nav-var/nav-var.component';
+import { PantallaLoginComponent } from './componentes/pantallas/pantalla-login/pantalla-login.component';
+import { PantallaPrincipalComponent } from './componentes/pantallas/pantalla-principal/pantalla-principal.component';
+
 import { PersonasRepoService } from './servicios/personas-repo.service';
 import { PropiedadesRepoService } from './servicios/propiedades-repo.service';
 import { AlquileresRepoService } from './servicios/alquileres-repo.service';
-import { CommonModule } from '@angular/common';
+
+import { Buscar } from './pipes/buscador';
+import { ConfiguracionAcmeComponent } from './componentes/pantallas/configuracion-acme/configuracion-acme.component';
 
 
 const rutas: Routes = [
@@ -37,6 +41,7 @@ const rutas: Routes = [
   { path: 'personas-form', component: PersonasFormComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'info-propiedad', component: InfoPropiedadComponent },
+  { path: 'config-acme', component: ConfiguracionAcmeComponent },
   { path: '', component: PantallaPrincipalComponent }
 ];
 const componentes = [
@@ -51,14 +56,13 @@ const componentes = [
   PersonasListComponent,
   PerfilComponent,
   Buscar,
-  FilterPipe,
-  ArraySortPipe,
   NavVarComponent,
-  InfoPropiedadComponent
+  InfoPropiedadComponent,
+  ConfiguracionAcmeComponent
 ]
 
 @NgModule({
-  declarations: 
+  declarations:
     componentes,
   imports: [
     CommonModule,

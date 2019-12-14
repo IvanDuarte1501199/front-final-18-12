@@ -28,7 +28,7 @@
 <div *ngIf="_personasRepoService.personaLogeada.tipo == 'Cliente'">
     <h1 style="text-align: center;">LISTA PROPIEDADES</h1>
 
-    <table class="table table-hover">
+    <table class="table table-light">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
@@ -44,8 +44,9 @@
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td class="btn btn-warning" (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad" >Informacion</td>
+                <td><span class="btn btn-warning" (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad"> Informacion</span></td>
             </tr>
+           
         </tbody>
 
     </table>
