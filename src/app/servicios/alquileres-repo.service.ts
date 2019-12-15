@@ -13,14 +13,14 @@ export class AlquileresRepoService {
   constructor(private _httpClient: HttpClient) { }
 
   getAllAlquileres() {
-    this._httpClient.get<Alquiler[]>('http://localhost:3000/alquileres')
+    this._httpClient.get<Alquiler[]>('http://localhost:4000/api/alquileres')
       .subscribe(
         (data) => this.listadoAlquileres = data
       );
   }
   getAllAlquileresPorPersona(idPersona: number) {
     this.listadoAlquileresPorPersona = [];
-    this._httpClient.get<Alquiler[]>('http://localhost:3000/alquileres')
+    this._httpClient.get<Alquiler[]>('http://localhost:4000/api/alquileres')
       .subscribe(
         (data) => {
           data.forEach(element => {
@@ -33,18 +33,18 @@ export class AlquileresRepoService {
   }
 
   getAlquilerById(alquilerId: number) {
-    return this._httpClient.get<Alquiler>(`http://localhost:3000/alquileres/${alquilerId}`);
+    return this._httpClient.get<Alquiler>(`http://localhost:4000/api/alquileres/${alquilerId}`);
   }
 
   agregarAlquiler(nuevoAlquiler: Alquiler) {
-    return this._httpClient.post('http://localhost:3000/alquileres', nuevoAlquiler);
+    return this._httpClient.post('http://localhost:4000/api/alquileres', nuevoAlquiler);
   }
 
   borrarAlquiler(alquilerId: number) {
-    return this._httpClient.delete(`http://localhost:3000/alquileres/${alquilerId}`);
+    return this._httpClient.delete(`http://localhost:4000/api/alquileres/${alquilerId}`);
   }
 
   actualizaAlquiler(alquiler: Alquiler) {
-    return this._httpClient.put(`http://localhost:3000/alquileres/${alquiler.id}`, alquiler);
+    return this._httpClient.put(`http://localhost:4000/api/alquileres/${alquiler.id}`, alquiler);
   }
 }

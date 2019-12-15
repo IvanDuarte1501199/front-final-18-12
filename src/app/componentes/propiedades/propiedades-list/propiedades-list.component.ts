@@ -16,7 +16,6 @@ export class PropiedadesListComponent implements OnInit {
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
     this._propiedadesRepoService.getAllPropiedadesXduenio(this._personasRepoService.personaLogeada.id);
-    this._propiedadesRepoService.getAllPropiedadesDisponibles();
     
   }
 
@@ -36,6 +35,7 @@ export class PropiedadesListComponent implements OnInit {
       .subscribe((response) => {
         console.log('se borro la persona ', response);
         this._propiedadesRepoService.getAllPropiedades();
+        this._propiedadesRepoService.getAllPropiedadesXduenio(this._personasRepoService.personaLogeada.id);
       });
   }
 

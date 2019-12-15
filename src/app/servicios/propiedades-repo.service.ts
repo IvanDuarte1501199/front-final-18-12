@@ -17,7 +17,7 @@ export class PropiedadesRepoService {
   }
 
   getAllPropiedades() {
-    this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
+    this._httpClient.get<Propiedad[]>('http://localhost:4000/api/propiedades')
       .subscribe(
         (data) => this.listadoPropiedades = data
       );
@@ -25,7 +25,7 @@ export class PropiedadesRepoService {
 
   getAllPropiedadesXduenio(id: number) {
     this.listadoPropiedadesXduenio = [];
-    this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
+    this._httpClient.get<Propiedad[]>('http://localhost:4000/api/propiedades')
       .subscribe(
         (data) => {
           data.forEach(element => {
@@ -38,34 +38,21 @@ export class PropiedadesRepoService {
       );
   }
 
-  getAllPropiedadesDisponibles() {
-    this.listadoPropiedadesDisponibles = [];
-    this._httpClient.get<Propiedad[]>('http://localhost:3000/propiedades')
-      .subscribe(
-        (data) => {
-          data.forEach(element => {
-            if (element.disponible == true) {
-              this.listadoPropiedadesDisponibles.push(element);
-            }
-          });
-
-        }
-      );
-  }
+  
   getPropiedadById(propiedadId: number) {
-    return this._httpClient.get<Propiedad>(`http://localhost:3000/propiedades/${propiedadId}`);
+    return this._httpClient.get<Propiedad>(`http://localhost:4000/api/propiedades/${propiedadId}`);
   }
 
   agregarPropiedad(nuevaPropiedad: Propiedad) {
-    return this._httpClient.post('http://localhost:3000/propiedades', nuevaPropiedad);
+    return this._httpClient.post('http://localhost:4000/api/propiedades', nuevaPropiedad);
   }
 
   borrarPropiedad(propiedadId: number) {
-    return this._httpClient.delete(`http://localhost:3000/propiedades/${propiedadId}`);
+    return this._httpClient.delete(`http://localhost:4000/api/propiedades/${propiedadId}`);
   }
 
   actualizaPropiedad(propiedad: Propiedad) {
-    return this._httpClient.put(`http://localhost:3000/propiedades/${propiedad.id}`, propiedad);
+    return this._httpClient.put(`http://localhost:4000/api/propiedades/${propiedad.id}`, propiedad);
   }
 
 
