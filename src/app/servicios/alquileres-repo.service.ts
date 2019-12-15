@@ -9,6 +9,7 @@ export class AlquileresRepoService {
 
   listadoAlquileres: Alquiler[] = [];
   listadoAlquileresPorPersona: Alquiler[] = [];
+  alquilerAmostrar: Alquiler = new Alquiler(null,null,null,null,null);
   constructor(private _httpClient: HttpClient) { }
 
   getAllAlquileres() {

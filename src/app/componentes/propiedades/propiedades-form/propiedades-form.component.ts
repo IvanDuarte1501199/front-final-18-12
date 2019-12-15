@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Propiedad } from 'src/app/models/Propiedad';
 import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.service';
+import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
 
 @Component({
   selector: 'app-propiedades-form',
@@ -9,9 +10,9 @@ import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.servi
 })
 export class PropiedadesFormComponent implements OnInit {
 
-  nuevaPropiedad: Propiedad = new Propiedad('','','','',null, Number(localStorage.getItem('id')));
+  nuevaPropiedad: Propiedad = new Propiedad('','','','',null,this._personaRepoService.personaLogeada.id );
   edicion: boolean = false;
-  constructor(private _propiedadRepoService: PropiedadesRepoService) { }
+  constructor(private _propiedadRepoService: PropiedadesRepoService, private _personaRepoService: PersonasRepoService) { }
 
   ngOnInit() {
   }
@@ -21,16 +22,16 @@ export class PropiedadesFormComponent implements OnInit {
         .subscribe(
           (response) => {
             this.edicion = false;
-            this.nuevaPropiedad = new Propiedad('','','','',null, Number(localStorage.getItem('id')));
-            this._propiedadRepoService.getAllPropiedades();
+            this.nuevaPropiedad = new Propiedad('','','','',null, this._personaRepoService.personaLogeada.id );
+            this._propiedadRepoService.getAllPropiedadesXduenio(this._personaRepoService.personaLogeada.id);
           }
         );
     } else {
       this._propiedadRepoService.agregarPropiedad(this.nuevaPropiedad)
         .subscribe((response) => {
           console.log('se creo la propiedad: ', response);
-          this.nuevaPropiedad = new Propiedad('','','','',null, Number(localStorage.getItem('id')));
-          this._propiedadRepoService.getAllPropiedades();
+          this.nuevaPropiedad = new Propiedad('','','','',null,this._personaRepoService.personaLogeada.id );
+          this._propiedadRepoService.getAllPropiedadesXduenio(this._personaRepoService.personaLogeada.id);
         });
     }
   }

@@ -12,6 +12,7 @@ export class PropiedadesListComponent implements OnInit {
 
   propiedadSeleccionada: Propiedad;
   tipo: string;
+  busqueda: string = "";
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
     this._propiedadesRepoService.getAllPropiedadesXduenio(this._personasRepoService.personaLogeada.id);
@@ -45,7 +46,6 @@ export class PropiedadesListComponent implements OnInit {
         this._personasRepoService.getPersonaById(pro.dueñoId).subscribe(
           (per) => {
             this._personasRepoService.personaAmostrar = per;
-
           }
         )
       }

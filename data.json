@@ -4,7 +4,7 @@
       "id": 1,
       "nombre": "Ivan",
       "apellido": "Duarte",
-      "dni": "222141242421421",
+      "dni": "111",
       "tipo": "Dueño",
       "fechaNacimiento": "1999-01-15"
     },
@@ -12,97 +12,83 @@
       "id": 2,
       "nombre": "nahuel",
       "apellido": "kliphaNN",
-      "dni": "4512512",
+      "dni": "222",
       "tipo": "Cliente",
       "fechaNacimiento": "1523-02-10"
     },
     {
-      "id": 3,
-      "nombre": "ivan",
-      "apellido": "duarte",
-      "dni": "11111",
-      "fechaNacimiento": "1999-11-15",
-      "tipo": "Cliente"
+      "id": 4,
+      "nombre": "juan",
+      "apellido": "sorete",
+      "dni": "333",
+      "fechaNacimiento": "1999-12-12",
+      "tipo": "Dueño"
     }
   ],
   "propiedades": [
     {
       "id": 1,
-      "nombre": "casa domicio",
-      "ubicacion": "eofjdsa421",
-      "descripcion": "jgmspo",
-      "notas": " gkjfodskf",
-      "precioXdia": "41",
+      "nombre": "casa del dueño 1",
+      "ubicacion": "odsak",
+      "descripcion": "iofmsa",
+      "notas": " fodjsa",
+      "precioXdia": "423",
       "dueñoId": 1,
-      "disponible": true
+      "disponible": false
     },
     {
       "id": 2,
-      "nombre": "otro domicilio embrujado",
-      "ubicacion": "kjodsaf",
-      "descripcion": "451243",
-      "notas": "idfsaodasj",
-      "precioXdia": "421421",
+      "nombre": "otra casa del dueño 1\t",
+      "ubicacion": "flsaol",
+      "descripcion": "gfnds",
+      "notas": "sfikmndfo",
+      "precioXdia": "41",
       "dueñoId": 1,
-      "disponible": true
+      "disponible": false
     },
     {
       "id": 3,
-      "nombre": "una propiedad grande",
-      "ubicacion": "ramirez 420",
-      "descripcion": "casa embrujada",
-      "notas": "jtfodsajf",
-      "precioXdia": "34",
-      "dueñoId": 3,
+      "nombre": "casa del dueño 2",
+      "ubicacion": "14",
+      "descripcion": "terw",
+      "notas": "gidfs",
+      "precioXdia": "12",
+      "dueñoId": 4,
       "disponible": true
+    },
+    {
+      "id": 4,
+      "nombre": "otra casa del dueño 2",
+      "ubicacion": "ikmsfda",
+      "descripcion": "ijfdsio",
+      "notas": "31",
+      "precioXdia": "421",
+      "dueñoId": 4,
+      "disponible": false
     }
   ],
   "alquileres": [
     {
       "id": 1,
-      "fechaInicio": "1111-11-11",
-      "fechaFin": "2222-02-22",
-      "propiedadId": 3,
+      "fechaInicio": "2019-12-14",
+      "fechaFin": "2019-12-21",
+      "propiedadId": 1,
       "clienteId": 2,
-      "porcentajeAcme": null
+      "porcentajeAcme": 0.1
     },
     {
       "id": 2,
-      "fechaInicio": "2222-02-22",
-      "fechaFin": "1111-11-11",
+      "fechaInicio": "2019-12-14",
+      "fechaFin": "2019-12-21",
       "propiedadId": 2,
-      "clienteId": 3,
-      "porcentajeAcme": null
+      "clienteId": 2,
+      "porcentajeAcme": 0.1
     },
     {
       "id": 3,
-      "fechaInicio": "1111-11-11",
-      "fechaFin": "2222-02-22",
-      "propiedadId": 3,
-      "clienteId": 2,
-      "porcentajeAcme": null
-    },
-    {
-      "id": 4,
-      "fechaInicio": "1111-11-11",
-      "fechaFin": "2222-02-22",
-      "propiedadId": 3,
-      "clienteId": 2,
-      "porcentajeAcme": null
-    },
-    {
-      "id": 5,
-      "fechaInicio": "2222-02-22",
-      "fechaFin": "2222-02-22",
-      "propiedadId": 3,
-      "clienteId": 2,
-      "porcentajeAcme": null
-    },
-    {
-      "id": 6,
-      "fechaInicio": "1321-12-12",
-      "fechaFin": "2222-02-22",
-      "propiedadId": 3,
+      "fechaInicio": "2019-12-22",
+      "fechaFin": "2019-12-28",
+      "propiedadId": 1,
       "clienteId": 2,
       "porcentajeAcme": 0.1
     }

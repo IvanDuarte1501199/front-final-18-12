@@ -1,5 +1,8 @@
 <div>
     <h1 style="text-align: center;">LISTA USUARIOS</h1>
+    <div class="form-group" >
+        <input type="text" class="form-control" [(ngModel)]="busqueda" placeholder="Buscar">
+    </div>
     <table class="table table-light">
         <thead>
             <tr>
@@ -12,7 +15,7 @@
         </thead>
 
         <tbody>
-            <tr class="table-primary" *ngFor="let persona of _personaRepoService.listadoPersonas">
+            <tr class="table-primary" *ngFor="let persona of _personaRepoService.listadoPersonas | buscar:busqueda ">
                 <th scope="row">{{ persona.dni }}</th>
                 <td>{{ persona.nombre }}</td>
                 <td>{{ persona.apellido }}</td>

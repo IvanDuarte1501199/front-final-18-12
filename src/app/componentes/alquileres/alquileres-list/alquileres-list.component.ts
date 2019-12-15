@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Alquiler } from 'src/app/models/Alquiler';
 import { AlquileresRepoService } from 'src/app/servicios/alquileres-repo.service';
 import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
+import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.service';
 
 @Component({
   selector: 'app-alquileres-list',
@@ -9,9 +10,9 @@ import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
   styleUrls: ['./alquileres-list.component.css']
 })
 export class AlquileresListComponent implements OnInit {
-
+  busqueda: string = "";
   alquilerSeleccionada: Alquiler = new Alquiler(null, null, null, null, null);
-  constructor(private _alquileresRepoService: AlquileresRepoService, private _personasRepoService: PersonasRepoService) {
+  constructor(private _alquileresRepoService: AlquileresRepoService, private _personasRepoService: PersonasRepoService, private _propiedadesRepoService: PropiedadesRepoService) {
     this._alquileresRepoService.getAllAlquileres();
     this._alquileresRepoService.getAllAlquileresPorPersona(_personasRepoService.personaLogeada.id)
   }
@@ -34,5 +35,22 @@ export class AlquileresListComponent implements OnInit {
         this._alquileresRepoService.getAllAlquileres();
       });
   }
-  
+
+  verInformacion(idAlquiler) {
+    this._alquileresRepoService.getAlquilerById(idAlquiler).subscribe(
+      (al) => {
+        this._alquileresRepoService.alquilerAmostrar = al;
+        this._propiedadesRepoService.getPropiedadById(al.propiedadId).subscribe(
+          (pro) => {
+            this._propiedadesRepoService.propiedadAmostrar = pro;
+            this._personasRepoService.getPersonaById(pro.dueñoId).subscribe(
+              (per) => {
+                this._personasRepoService.personaAmostrar = per;
+              });
+          }
+        )
+      }
+    )
+
+  }
 }

@@ -10,10 +10,10 @@ export class PropiedadesRepoService {
   listadoPropiedades: Propiedad[] = [];
   listadoPropiedadesXduenio: Propiedad[] = [];
   listadoPropiedadesDisponibles: Propiedad[] = [];
-  propiedadAmostrar: Propiedad = new Propiedad('','','','',null,null);
+  propiedadAmostrar: Propiedad = new Propiedad('', '', '', '', null, null);
   idTemp: number;
   constructor(private _httpClient: HttpClient) {
-    
+
   }
 
   getAllPropiedades() {

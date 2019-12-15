@@ -29,6 +29,7 @@ import { AlquileresRepoService } from './servicios/alquileres-repo.service';
 
 import { Buscar } from './pipes/buscador';
 import { ConfiguracionAcmeComponent } from './componentes/pantallas/configuracion-acme/configuracion-acme.component';
+import { AlquierInfoComponent } from './componentes/alquileres/alquier-info/alquier-info.component';
 
 
 const rutas: Routes = [
@@ -42,6 +43,7 @@ const rutas: Routes = [
   { path: 'perfil', component: PerfilComponent },
   { path: 'info-propiedad', component: InfoPropiedadComponent },
   { path: 'config-acme', component: ConfiguracionAcmeComponent },
+  { path: 'info-alquiler', component: AlquierInfoComponent },
   { path: '', component: PantallaPrincipalComponent }
 ];
 const componentes = [
@@ -58,7 +60,8 @@ const componentes = [
   Buscar,
   NavVarComponent,
   InfoPropiedadComponent,
-  ConfiguracionAcmeComponent
+  ConfiguracionAcmeComponent,
+  AlquierInfoComponent
 ]
 
 @NgModule({

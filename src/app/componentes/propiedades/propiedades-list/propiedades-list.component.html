@@ -1,5 +1,8 @@
 <div *ngIf="_personasRepoService.personaLogeada.tipo == 'Dueño'">
     <h1 style="text-align: center;">LISTA PROPIEDADES</h1>
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="busqueda" placeholder="Buscar">
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -11,7 +14,8 @@
         </thead>
 
         <tbody>
-            <tr class="table-primary" *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedadesXduenio">
+            <tr class="table-primary"
+                *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedadesXduenio | buscar:busqueda">
                 <th scope="row">{{ propiedad.nombre }}</th>
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
@@ -27,7 +31,9 @@
 
 <div *ngIf="_personasRepoService.personaLogeada.tipo == 'Cliente'">
     <h1 style="text-align: center;">LISTA PROPIEDADES</h1>
-
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="busqueda" placeholder="Buscar">
+    </div>
     <table class="table table-light">
         <thead>
             <tr>
@@ -39,15 +45,16 @@
         </thead>
 
         <tbody>
-            <tr class="table-primary" *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedadesDisponibles">
+            <tr class="table-primary" *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedades | buscar:busqueda">
                 <th scope="row">{{ propiedad.nombre }}</th>
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td><span class="btn btn-warning" (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad"> Informacion</span></td>
+                <td><span class="btn btn-warning" (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad">
+                        Informacion</span></td>
             </tr>
-           
+
         </tbody>
 
     </table>
-</div> 
+</div>

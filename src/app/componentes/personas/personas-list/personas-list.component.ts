@@ -10,7 +10,7 @@ import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
 export class PersonasListComponent implements OnInit {
 
   personaSeleccionada: Persona;
-
+  busqueda: string = "";
   constructor(private _personaRepoService: PersonasRepoService) {
     this._personaRepoService.getAllPersonas();
    }

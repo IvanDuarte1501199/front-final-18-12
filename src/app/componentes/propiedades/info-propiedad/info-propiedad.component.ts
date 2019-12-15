@@ -7,6 +7,8 @@ import { Alquiler } from 'src/app/models/Alquiler';
 import { AlquileresRepoService } from 'src/app/servicios/alquileres-repo.service';
 import { AppComponent } from 'src/app/app.component';
 import { createNgModule } from '@angular/compiler/src/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { createElementCssSelector } from '@angular/compiler';
 
 @Component({
   selector: 'app-info-propiedad',
@@ -15,6 +17,9 @@ import { createNgModule } from '@angular/compiler/src/core';
 })
 
 export class InfoPropiedadComponent implements OnInit {
+  retorno: Boolean;
+  cant: number;
+  //para obtener la fecha actual
   dd: string;
   mm: string;
   yyyy: string;
@@ -46,30 +51,59 @@ export class InfoPropiedadComponent implements OnInit {
   }
 
   alquilarPropiedad(idPropiedad: number) {
+    this.nuevoAlquiler.clienteId = this._personaRepoService.personaLogeada.id;
+    this.nuevoAlquiler.propiedadId = idPropiedad;
+    this.nuevoAlquiler.porcentajeAcme = this.ac.porcentajeAcme;
     if (this.verificarFormulario()) {
-      this.nuevoAlquiler.clienteId = this._personaRepoService.personaLogeada.id;
-      this.nuevoAlquiler.propiedadId = idPropiedad;
-      this.nuevoAlquiler.porcentajeAcme = this.ac.porcentajeAcme;
       this._alquilerRepoService.agregarAlquiler(this.nuevoAlquiler)
         .subscribe((response) => {
           console.log('se creo el alquiler: ', response);
           this.nuevoAlquiler = new Alquiler(null, null, null, null, null);
           this._personaRepoService.getAllPersonas();
         });
+      /*  para sacar de disponible a la propiedad, verificar la fecha que sea hoy
+      this._propiedadRepoService.propiedadAmostrar.disponible = false;
+      this._propiedadRepoService.actualizaPropiedad(this._propiedadRepoService.propiedadAmostrar)
+        .subscribe(
+          (response) => {
+            this._personaRepoService.getAllPersonas();
+          }
+        );
+    */
     }
   }
 
   verificarFormulario() {
+    this.retorno = true;
+    this.cant = 0;
     if (this.nuevoAlquiler.fechaInicio == null || this.nuevoAlquiler.fechaFin == null) {
       alert('Ingrese fechas correctamente');
-      return false;
+      console.log('entro al if 1');
+      this.retorno = false;
     } else {
       if (this.nuevoAlquiler.fechaInicio > this.nuevoAlquiler.fechaFin) {
-        alert('La fecha de fin no puede ser menor a la de hoy');
-        return false;
+        alert('La fecha de fin no puede ser menor a la de inicio');
+        console.log('entro al if 2');
+        this.retorno = false;
+      } else {
+        if (this.nuevoAlquiler.fechaInicio.toString() < this.set_date && this.nuevoAlquiler.fechaFin.toString() < this.set_date) {
+          alert('Las fechas no pueden ser menor a la de hoy');
+          console.log('entro al if 3');
+          this.retorno = false;
+        } else {
+          this._alquilerRepoService.listadoAlquileres.forEach(element => {
+            if ((this.nuevoAlquiler.fechaInicio >= element.fechaInicio && this.nuevoAlquiler.fechaInicio <= element.fechaFin) || (this.nuevoAlquiler.fechaFin >=  element.fechaInicio && this.nuevoAlquiler.fechaFin <= element.fechaFin) && (element.propiedadId == this.nuevoAlquiler.propiedadId)) {
+              if(this.cant == 0 ){
+              alert('Esta Propiedad está alquilada entre las fechas ingresadas');
+              this.cant++;
+              }
+              this.retorno = false;
+            }
+          });
+        }
       }
     }
-    return true;
+    return this.retorno;
   }
 
 }
