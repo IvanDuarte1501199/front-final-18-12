@@ -44,8 +44,13 @@ const rutas: Routes = [
   { path: 'info-propiedad', component: InfoPropiedadComponent },
   { path: 'config-acme', component: ConfiguracionAcmeComponent },
   { path: 'info-alquiler', component: AlquierInfoComponent },
-  { path: '', component: PantallaPrincipalComponent }
+  { path: '', component: PantallaPrincipalComponent, pathMatch: 'full' }, 
+  { path: '**',component: PantallaPrincipalComponent }
 ];
+
+
+
+
 const componentes = [
   AppComponent,
   PropiedadesListComponent,

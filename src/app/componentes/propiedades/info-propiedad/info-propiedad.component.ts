@@ -54,7 +54,7 @@ export class InfoPropiedadComponent implements OnInit {
     this.nuevoAlquiler.clienteId = this._personaRepoService.personaLogeada.id;
     this.nuevoAlquiler.propiedadId = idPropiedad;
     this.nuevoAlquiler.porcentajeAcme = this.ac.porcentajeAcme;
-    if (this.verificarFormulario()) {
+    if (this.verificarDatos()) {
       this._alquilerRepoService.agregarAlquiler(this.nuevoAlquiler)
         .subscribe((response) => {
           console.log('se creo el alquiler: ', response);
@@ -73,7 +73,7 @@ export class InfoPropiedadComponent implements OnInit {
     }
   }
 
-  verificarFormulario() {
+  verificarDatos() {
     this.retorno = true;
     this.cant = 0;
     if (this.nuevoAlquiler.fechaInicio == null || this.nuevoAlquiler.fechaFin == null) {
