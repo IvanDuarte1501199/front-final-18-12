@@ -1,1 +1,52 @@
-<p>alquier-info works!</p>
+<br>
+<div class="row">
+    <div class="form-group col-1"></div>
+    <div class="form-group col-3">
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Datos Alquiler</div>
+                <div class="card-body">
+                    <p class="card-text"> <b>Fecha Inicio:</b> {{_alquilerRepoService.alquilerAmostrar.fechaInicio}}</p>
+                    <p class="card-text"> <b>Fecha Fin:</b> {{_alquilerRepoService.alquilerAmostrar.fechaFin}}</p>
+                    <p class="card-text"> <b>% Acme:</b> {{_alquilerRepoService.alquilerAmostrar.porcentajeAcme}} </p>
+                </div>
+                <!-- 
+                _personasRepoService.personaAmostrar
+                _propiedadesRepoService.propiedadAmostrar
+                 -->
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-3">
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Datos Propiedad</div>
+                <div class="card-body">
+                    <p class="card-text"><b>Nombre:</b> {{_propiedadRepoService.propiedadAmostrar.nombre  }} </p>
+                    <p class="card-text"><b>Ubicación:</b> {{_propiedadRepoService.propiedadAmostrar.ubicacion  }} </p>
+                    <p class="card-text"><b>Descripción:</b> {{_propiedadRepoService.propiedadAmostrar.descripcion  }}
+                    </p>
+                    <p class="card-text"><b>Notas:</b> {{_propiedadRepoService.propiedadAmostrar.notas  }} </p>
+                    <p class="card-text"><b>Precio por Día:</b> {{_propiedadRepoService.propiedadAmostrar.precioXdia  }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-3">
+        <div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Datos Dueño</div>
+                <div class="card-body">
+                    <p class="card-text"><b>Nombre:</b> {{_personaRepoService.personaAmostrar.nombre  }} </p>
+                    <p class="card-text"><b>Apellido:</b> {{_personaRepoService.personaAmostrar.apellido  }} </p>
+                    <p class="card-text"><b>Dni:</b> {{_personaRepoService.personaAmostrar.dni  }} </p>
+                    <p class="card-text"><b>Fecha de Nacimiento:</b>
+                        {{_personaRepoService.personaAmostrar.fechaNacimiento }}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-1"></div>
+</div>

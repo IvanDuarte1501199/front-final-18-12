@@ -12,9 +12,18 @@ import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.servi
 export class AlquileresListComponent implements OnInit {
   busqueda: string = "";
   alquilerSeleccionada: Alquiler = new Alquiler(null, null, null, null, null);
+
+
   constructor(private _alquileresRepoService: AlquileresRepoService, private _personasRepoService: PersonasRepoService, private _propiedadesRepoService: PropiedadesRepoService) {
     this._alquileresRepoService.getAllAlquileres();
-    this._alquileresRepoService.getAllAlquileresPorPersona(_personasRepoService.personaLogeada.id)
+    this._alquileresRepoService.getAllAlquileresPorPersona(_personasRepoService.personaLogeada.id);
+    this._propiedadesRepoService.getAllPropiedades();
+    this._personasRepoService.getAllPersonas();
+    /*
+        this._personasRepoService.listadoPersonas.forEach(personas => {
+          this._personasRepoService.nombresDueños[personas.id] = personas.nombre;
+        });
+      */
   }
 
   ngOnInit() {
@@ -51,6 +60,5 @@ export class AlquileresListComponent implements OnInit {
         )
       }
     )
-
   }
 }

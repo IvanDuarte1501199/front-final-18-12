@@ -1,0 +1,46 @@
+<br>
+
+
+<div class="row">
+    <div class="form-group col-1"></div>
+    <div class="mb-3">
+        <h1>Ingrese 2 fechas para percibir el dinero gastado entre ambas</h1>
+    </div>
+    <div class="form-group col-1"></div>
+    <div class="form-group col-4">
+
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Inicio</span>
+            </div>
+            <input [(ngModel)]="fechaInicio" [min]="set_date" name="FechaInicio" type="date"
+                class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Fin</span>
+            </div>
+            <input [min]="set_date" [(ngModel)]="fechaFin" name="FechaFin" type="date"
+                class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-1">
+
+    </div>
+    <div class="form-group col-4">
+        <p class="btn btn-success" (click)="verDatos()">
+            Ver Datos</p>
+    </div>
+
+</div>
+
+
+<div class="row" *ngIf="ver">
+    <div class="form-group col-1"></div>
+    <div class="mb-3">
+        <b>Total de dias con propiedad/es alquiladas entre los días</b> {{ cantDiasTotal }} <br>
+        <b>Precio total gastado entre los dias</b> ${{ precioCalculado }} <br>
+    </div>
+</div>

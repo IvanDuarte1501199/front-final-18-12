@@ -40,7 +40,7 @@ export class PerfilComponent implements OnInit {
       this.retorno = false;
     } else {
       this._personaRepoService.listadoPersonas.forEach(element => {
-        if (this._personaRepoService.personaLogeada.dni == element.dni) {
+        if (this._personaRepoService.personaLogeada.dni == element.dni && this._personaRepoService.personaLogeada.id != element.id) {
           this.retorno = false;
           alert('dni existente');
         }

@@ -61,15 +61,6 @@ export class InfoPropiedadComponent implements OnInit {
           this.nuevoAlquiler = new Alquiler(null, null, null, null, null);
           this._personaRepoService.getAllPersonas();
         });
-      /*  para sacar de disponible a la propiedad, verificar la fecha que sea hoy
-      this._propiedadRepoService.propiedadAmostrar.disponible = false;
-      this._propiedadRepoService.actualizaPropiedad(this._propiedadRepoService.propiedadAmostrar)
-        .subscribe(
-          (response) => {
-            this._personaRepoService.getAllPersonas();
-          }
-        );
-    */
     }
   }
 
@@ -78,21 +69,18 @@ export class InfoPropiedadComponent implements OnInit {
     this.cant = 0;
     if (this.nuevoAlquiler.fechaInicio == null || this.nuevoAlquiler.fechaFin == null) {
       alert('Ingrese fechas correctamente');
-      console.log('entro al if 1');
       this.retorno = false;
     } else {
       if (this.nuevoAlquiler.fechaInicio > this.nuevoAlquiler.fechaFin) {
         alert('La fecha de fin no puede ser menor a la de inicio');
-        console.log('entro al if 2');
         this.retorno = false;
       } else {
         if (this.nuevoAlquiler.fechaInicio.toString() < this.set_date && this.nuevoAlquiler.fechaFin.toString() < this.set_date) {
           alert('Las fechas no pueden ser menor a la de hoy');
-          console.log('entro al if 3');
           this.retorno = false;
         } else {
           this._alquilerRepoService.listadoAlquileres.forEach(element => {
-            if ((this.nuevoAlquiler.fechaInicio >= element.fechaInicio && this.nuevoAlquiler.fechaInicio <= element.fechaFin) || (this.nuevoAlquiler.fechaFin >=  element.fechaInicio && this.nuevoAlquiler.fechaFin <= element.fechaFin) && (element.propiedadId == this.nuevoAlquiler.propiedadId)) {
+            if (((this.nuevoAlquiler.fechaInicio >= element.fechaInicio && this.nuevoAlquiler.fechaInicio <= element.fechaFin) || (this.nuevoAlquiler.fechaFin >=  element.fechaInicio && this.nuevoAlquiler.fechaFin <= element.fechaFin)) && (element.propiedadId == this.nuevoAlquiler.propiedadId)) {
               if(this.cant == 0 ){
               alert('Esta Propiedad está alquilada entre las fechas ingresadas');
               this.cant++;

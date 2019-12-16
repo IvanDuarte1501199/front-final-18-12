@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Propiedad } from '../models/Propiedad';
 import { HttpClient } from '@angular/common/http';
+import { PersonasRepoService } from './personas-repo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,28 @@ export class PropiedadesRepoService {
   listadoPropiedadesXduenio: Propiedad[] = [];
   listadoPropiedadesDisponibles: Propiedad[] = [];
   propiedadAmostrar: Propiedad = new Propiedad('', '', '', '', null, null);
-  idTemp: number;
-  constructor(private _httpClient: HttpClient) {
+  nombresPropiedades: string[] = [];
+  constructor(private _httpClient: HttpClient, private _personasRepoService: PersonasRepoService) {
 
   }
 
   getAllPropiedades() {
     this._httpClient.get<Propiedad[]>('http://localhost:4000/api/propiedades')
       .subscribe(
-        (data) => this.listadoPropiedades = data
-      );
+        (data) => {
+          this.listadoPropiedades = data
+
+          //carga de nombres de propiedades
+
+          this.listadoPropiedades.forEach(propiedad => {
+            this.nombresPropiedades[propiedad.id] = propiedad.nombre;
+            this._personasRepoService.getPersonaById(propiedad.dueñoId).subscribe((per) => {
+              this._personasRepoService.nombresDueños[propiedad.id] = per.nombre;
+            })
+
+          });
+
+        });
   }
 
   getAllPropiedadesXduenio(id: number) {
@@ -38,7 +51,7 @@ export class PropiedadesRepoService {
       );
   }
 
-  
+
   getPropiedadById(propiedadId: number) {
     return this._httpClient.get<Propiedad>(`http://localhost:4000/api/propiedades/${propiedadId}`);
   }
