@@ -12,6 +12,7 @@ export class PerfilComponent implements OnInit {
   retorno: boolean;
   constructor(private _personaRepoService: PersonasRepoService) {
     _personaRepoService.getAllPersonas();
+    _personaRepoService.setPersonaLogeada();
   }
   modoEdicion() {
     this.edicion = true;
