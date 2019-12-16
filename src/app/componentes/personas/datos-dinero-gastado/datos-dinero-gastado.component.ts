@@ -73,6 +73,7 @@ export class DatosDineroGastadoComponent implements OnInit {
           // comienza toda la comprobacion de dias
           if ((this.fechaInicio >= alquiler.fechaInicio && this.fechaInicio <= alquiler.fechaFin) && (this.fechaFin >= alquiler.fechaInicio && this.fechaFin <= alquiler.fechaFin)) {
             //sacar la diferencia entre dias de la fecha de inicio ingresada con la fecha de fin ingresada
+            console.log('primer if');
             this.cantDias = Ifechafin.getTime() - Ifechaini.getTime();
             this.cantDias = Math.round(this.cantDias / (1000 * 60 * 60 * 24));
             this.cantDias  = this.cantDias + 1;
@@ -84,6 +85,7 @@ export class DatosDineroGastadoComponent implements OnInit {
           else {
             if ((this.fechaInicio >= alquiler.fechaInicio && this.fechaInicio <= alquiler.fechaFin) && !(this.fechaFin >= alquiler.fechaInicio && this.fechaFin <= alquiler.fechaFin)) {
               // hay que sacar la direncia de dias entre la fecha de inicio y la fecha de fin de el alquiler
+              console.log('seg if');
               this.cantDias = Ifechafin.getTime() - Afechafin.getTime();
               this.cantDias = Math.round(this.cantDias / (1000 * 60 * 60 * 24));
               this.cantDias  = this.cantDias + 1;
@@ -94,7 +96,8 @@ export class DatosDineroGastadoComponent implements OnInit {
             } else {
               if (!(this.fechaInicio >= alquiler.fechaInicio && this.fechaInicio <= alquiler.fechaFin) && (this.fechaFin >= alquiler.fechaInicio && this.fechaFin <= alquiler.fechaFin)) {
                 //hay que sacar la diferencia entre la fecha de inicio del alquiler y la fecha de fin ingresada
-                this.cantDias = Ifechaini.getTime() - Afechaini.getTime();
+                console.log('terecr if');
+                this.cantDias = Ifechafin.getTime() - Afechaini.getTime();
                 this.cantDias = Math.round(this.cantDias / (1000 * 60 * 60 * 24));
                 this.cantDias  = this.cantDias + 1;
                 this.cantDiasTotal = this.cantDiasTotal + this.cantDias;
@@ -103,6 +106,7 @@ export class DatosDineroGastadoComponent implements OnInit {
                 }
               } else {
                 if (this.fechaInicio <= alquiler.fechaInicio && this.fechaFin >= alquiler.fechaFin) {
+                  console.log('cuarto if');
                   this.cantDias = Afechafin.getTime() - Afechaini.getTime();
                   this.cantDias = Math.round(this.cantDias / (1000 * 60 * 60 * 24));
                   this.cantDias  = this.cantDias + 1;
@@ -110,8 +114,6 @@ export class DatosDineroGastadoComponent implements OnInit {
                   if (this.cantDias > 0) {
                     this.precioCalculado = this.precioCalculado + (this.cantDias * pro.precioXdia)
                   }
-                  console.log(this.cantDias);
-                  console.log(this.cantDiasTotal);
                 } else {
                 }
               }
