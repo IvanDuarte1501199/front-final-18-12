@@ -22,7 +22,9 @@ export class PropiedadesListComponent implements OnInit {
   ngOnInit() {
 
   }
+  datosPropiedad(propiedadId: Propiedad){
 
+  }
   obtenerPropiedad(propiedadId: number) {
     this._propiedadesRepoService.getPropiedadById(propiedadId)
       .subscribe((pro) => {

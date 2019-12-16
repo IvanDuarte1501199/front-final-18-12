@@ -47,7 +47,6 @@ export class InfoPropiedadComponent implements OnInit {
       this.mm = '0' + this.mm
     }
     this.set_date = this.yyyy + '-' + this.mm + '-' + this.dd;
-    console.log(this.ac.porcentajeAcme);
   }
 
   alquilarPropiedad(idPropiedad: number) {

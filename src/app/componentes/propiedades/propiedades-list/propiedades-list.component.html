@@ -20,8 +20,10 @@
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td class="btn btn-danger" (click)="borrarPropiedad(propiedad.id)">Borrar</td>
-                <td class="btn btn-warning" (click)="formulario.editarPropiedad (propiedad.id)">Editar</td>
+                <td><span class="btn btn-outline-success" (click)="verInformacion(propiedad.id)" routerLink="/datos-propiedad">Datos</span></td>
+                <td><span class="btn btn-outline-danger" (click)="borrarPropiedad(propiedad.id)">Borrar</span></td>
+                <td><span class="btn btn-outline-warning" (click)="formulario.editarPropiedad (propiedad.id)">Editar</span>
+                </td>
             </tr>
         </tbody>
 
@@ -45,12 +47,14 @@
         </thead>
 
         <tbody>
-            <tr class="table-primary" *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedades | buscar:busqueda">
+            <tr class="table-primary"
+                *ngFor="let propiedad of _propiedadesRepoService.listadoPropiedades | buscar:busqueda">
                 <th scope="row">{{ propiedad.nombre }}</th>
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td><span class="btn btn-warning" (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad">
+                <td><span class="btn btn-outline-success" (click)="verInformacion(propiedad.id)"
+                        routerLink="/info-propiedad">
                         Informacion</span></td>
             </tr>
 

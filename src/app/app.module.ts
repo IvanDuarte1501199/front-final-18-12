@@ -31,6 +31,7 @@ import { Buscar } from './pipes/buscador';
 import { ConfiguracionAcmeComponent } from './componentes/pantallas/configuracion-acme/configuracion-acme.component';
 import { AlquierInfoComponent } from './componentes/alquileres/alquier-info/alquier-info.component';
 import { DatosDineroGastadoComponent } from './componentes/personas/datos-dinero-gastado/datos-dinero-gastado.component';
+import { DatosPropiedadComponent } from './componentes/propiedades/datos-propiedad/datos-propiedad.component';
 
 
 const rutas: Routes = [
@@ -46,6 +47,7 @@ const rutas: Routes = [
   { path: 'config-acme', component: ConfiguracionAcmeComponent },
   { path: 'info-alquiler', component: AlquierInfoComponent },
   { path: 'datos-dinero-gastado', component: DatosDineroGastadoComponent },
+  { path: 'datos-propiedad', component: DatosPropiedadComponent },
   { path: '', component: PantallaPrincipalComponent, pathMatch: 'full' }, 
   { path: '**',component: PantallaPrincipalComponent }
 ];
@@ -69,7 +71,8 @@ const componentes = [
   InfoPropiedadComponent,
   ConfiguracionAcmeComponent,
   AlquierInfoComponent,
-  DatosDineroGastadoComponent
+  DatosDineroGastadoComponent,
+  DatosPropiedadComponent
 ]
 
 @NgModule({
