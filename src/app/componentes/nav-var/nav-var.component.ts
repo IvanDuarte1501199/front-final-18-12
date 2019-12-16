@@ -8,15 +8,16 @@ import { Persona } from 'src/app/models/Persona';
   styleUrls: ['./nav-var.component.css']
 })
 export class NavVarComponent implements OnInit {
-  tipo: string;
   constructor(private _personasRepoService: PersonasRepoService) {
+  
   }
 
   ngOnInit() {
   }
 
   CerrarSesion() {
-    this._personasRepoService.personaLogeada =  new Persona('','',null,null,'');
+    localStorage.setItem('idLogeado', '');
+    this._personasRepoService.personaLogeada = new Persona('', '', null, null, '');
   }
 
 }

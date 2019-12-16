@@ -9,9 +9,8 @@ import { BinaryOperatorExpr } from '@angular/compiler';
 })
 export class PantallaLoginComponent implements OnInit {
 
-  id: number;
+  DniIngresado: number;
   entro: boolean = false;
-
   constructor(private _personasRepoService: PersonasRepoService) {
     _personasRepoService.getAllPersonas();
   }
@@ -20,21 +19,21 @@ export class PantallaLoginComponent implements OnInit {
   }
 
   VerificarId() {
+    this._personasRepoService.getAllPersonas();
     this.entro = false;
-    if (this.id == null) {
+    if (this.DniIngresado == null) {
       alert('Ingrese una Identificacion');
     } else {
       this._personasRepoService.listadoPersonas.forEach(element => {
-        if (this.id == element.dni) {
+        if (this.DniIngresado == element.dni) {
           this.entro = true;
-          this._personasRepoService.personaLogeada = element;
+          localStorage.setItem('idLogeado', element.id.toString());
+          this._personasRepoService.setPersonaLogeada();
         }
       });
       if (this.entro == false) {
         alert('Ingrese una Identificacion correcta');
       }
     }
-
-
   }
 }

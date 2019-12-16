@@ -11,22 +11,34 @@ export class PersonasRepoService {
   personaAmostrar: Persona = new Persona('', '', null, null, '');
   personaLogeada: Persona = new Persona('', '', null, null, '');
   nombresDueños: string[] = [];
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {
+    this.getAllPersonas();
+    this.setPersonaLogeada();
+  }
+
+
+  setPersonaLogeada() {
+    console.log(localStorage.getItem('idLogeado'));
+    if (localStorage.getItem('idLogeado') === '') {
+      this.personaLogeada = new Persona('', '', null, null, '');
+    } else {
+      console.log('entro a buscarlo');
+      this.getPersonaById(Number(localStorage.getItem('idLogeado'))).subscribe((per) => {
+        this.personaLogeada = per;
+      })
+      
+    }
+
+
+
+  }
+
 
   getAllPersonas() {
     this._httpClient.get<Persona[]>('http://localhost:4000/api/personas')
       .subscribe(
         (data) => {
           this.listadoPersonas = data
-          
-          //carga de nombres de dueños 
-          
-
-          /* 
-          this._personasRepoService.getPersonaById(propiedad.dueñoId).subscribe((per) => {
-            this._personasRepoService.nombresDueños[propiedad.id] = per.nombre;
-          })
-            */
         });
   }
 
