@@ -1,0 +1,40 @@
+<!-- PRIMERO DATOS DE LA PRIPIEDAD DE LA CUAL SE VAN A MOSTRAR LOS DATOS -->
+<br>
+<div class="row">
+    <div class="form-group col-1"></div>
+    <!-- cuantas veces y cuantos dias se ha alquilado una propiedad entre dos fechas -->
+    <div class="form-group col-4">
+        <div class="mb-3">
+            <b style="text-align: center;">Ingrese 2 fechas para ver el dinero percibido por los alquilerres entre las
+                fechas</b>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Inicio</span>
+            </div>
+            <input [(ngModel)]="fechaInicio" [min]="set_date" name="FechaInicio" type="date" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Fin</span>
+            </div>
+            <input [min]="set_date" [(ngModel)]="fechaFin" name="FechaFin" type="date" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <br>
+        <p class="btn btn-success" (click)="verDatos()">
+            Ver Datos</p>
+    </div>
+</div>
+
+<div class="row" *ngIf="ver">
+
+    <div class="form-group col-1"></div>
+    <div class="mb-8">
+        <b>Dinero Total Percibido = </b> ${{precioAcumTotal}} <br>
+        <b>Dinero Para AcmeB&B = </b> ${{precioAcumParaAcme}} <br>
+        <b>Dinero Para {{_personasRepoService.personaLogeada.nombre}}, {{_personasRepoService.personaLogeada.apellido}}
+            = </b> ${{precioNeto}}
+    </div>
+</div>
