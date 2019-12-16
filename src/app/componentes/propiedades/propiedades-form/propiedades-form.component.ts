@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Propiedad } from 'src/app/models/Propiedad';
-import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.service';
 import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
-import { runInThisContext } from 'vm';
+import { PropiedadesRepoService } from 'src/app/servicios/propiedades-repo.service';
 
 @Component({
   selector: 'app-propiedades-form',

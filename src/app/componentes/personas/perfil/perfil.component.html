@@ -61,6 +61,7 @@
                 </select>
             </div>
             <button class="btn btn-warning" *ngIf="edicion == false" (click)="modoEdicion()">Editar</button>
+            <button routerLink="/" class="btn btn-danger float-right" (click)="borrarPersona(_personaRepoService.personaLogeada.id)">Eliminar</button>
             <button class="btn btn-success" *ngIf="edicion == true" (click)="editarPersona()">Confirmar</button>
         </div>
     </div>

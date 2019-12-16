@@ -16,6 +16,16 @@ export class PerfilComponent implements OnInit {
   modoEdicion() {
     this.edicion = true;
   }
+
+  borrarPersona(personaId: number) {
+    this._personaRepoService.borrarPersona(personaId)
+      .subscribe((response) => {
+        console.log('se borro la persona ', response);
+        this._personaRepoService.getAllPersonas();
+        this._personaRepoService.personaLogeada = new Persona('','',null,null,'');
+      });
+  }
+
   editarPersona() {
     if (this.verificarDatos()) {
       this.edicion = false;
@@ -28,6 +38,7 @@ export class PerfilComponent implements OnInit {
         );
     }
   }
+
   verificarDatos() {
     this.retorno = true;
     if (this._personaRepoService.personaLogeada.nombre == null ||

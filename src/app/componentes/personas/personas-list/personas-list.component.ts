@@ -26,11 +26,4 @@ export class PersonasListComponent implements OnInit {
       });
   }
 
-  borrarPersona(personaId: number) {
-    this._personaRepoService.borrarPersona(personaId)
-      .subscribe((response) => {
-        console.log('se borro la persona ', response);
-        this._personaRepoService.getAllPersonas();
-      });
-  }
 }
