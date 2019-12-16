@@ -22,7 +22,35 @@
             </div>
         </div>
     </div>
+    <!-- cuantas veces y cuantos dias se ha alquilado una propiedad entre dos fechas -->
     <div class="form-group col-4">
-        
+        <div class="mb-3">
+            <b style="text-align: center;">Ingrese 2 fechas para ver cuantos dias y cuantas veces se alquilo la
+                propiedad entre las fechas</b>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Inicio</span>
+            </div>
+            <input [(ngModel)]="fechaInicio" [min]="set_date" name="FechaInicio" type="date" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de Fin</span>
+            </div>
+            <input [min]="set_date" [(ngModel)]="fechaFin" name="FechaFin" type="date" class="form-control"
+                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <br><br><br>
+        <p class="btn btn-success" (click)="verDatos()">
+            Ver Datos</p>
+    </div>
+</div>
+<div class="row" *ngIf="ver">
+    <div class="form-group col-1"></div>
+    <div class="mb-5">
+        <b>La propiedad se alquilo un total de = </b> {{ cantDiasTotal }} <b> dias durante las fechas ingresadas</b> <br>
+        <b>La propiedad se alquilo un total de = </b> {{ cantVeces }} <b> veces durante las fechas ingresadas</b> <br>
     </div>
 </div>

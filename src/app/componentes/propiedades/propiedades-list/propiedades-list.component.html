@@ -20,10 +20,12 @@
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td><span class="btn btn-outline-success" (click)="verInformacion(propiedad.id)" routerLink="/datos-propiedad">Datos</span></td>
-                <td><span class="btn btn-outline-danger" (click)="borrarPropiedad(propiedad.id)">Borrar</span></td>
-                <td><span class="btn btn-outline-warning" (click)="formulario.editarPropiedad (propiedad.id)">Editar</span>
-                </td>
+                <td style="width: 20px;"><button (click)="verInformacion(propiedad.id)" routerLink="/datos-propiedad"
+                        class="btn btn-outline-success">Datos</button></td>
+                <td style="width: 20px;"><button (click)="borrarPropiedad(propiedad.id)"
+                        class="btn btn-outline-danger">Borrar</button></td>
+                <td style="width: 20px;"><button (click)="formulario.editarPropiedad (propiedad.id)"
+                        class="btn btn-outline-warning">Editar</button></td>
             </tr>
         </tbody>
 
@@ -53,8 +55,8 @@
                 <td>{{ propiedad.ubicacion }}</td>
                 <td>{{ propiedad.descripcion }}</td>
                 <td>{{ propiedad.precioXdia }}</td>
-                <td><span class="btn btn-outline-success" (click)="verInformacion(propiedad.id)"
-                        routerLink="/info-propiedad">
+                <td style="width: 60px;"><span style="width: 140px;" class="btn btn-outline-success"
+                        (click)="verInformacion(propiedad.id)" routerLink="/info-propiedad">
                         Informacion</span></td>
             </tr>
 
