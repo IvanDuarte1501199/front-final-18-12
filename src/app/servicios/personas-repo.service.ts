@@ -18,11 +18,9 @@ export class PersonasRepoService {
 
 
   setPersonaLogeada() {
-    console.log(localStorage.getItem('idLogeado'));
     if (localStorage.getItem('idLogeado') === '') {
       this.personaLogeada = new Persona('', '', null, null, '');
     } else {
-      console.log('entro a buscarlo');
       this.getPersonaById(Number(localStorage.getItem('idLogeado'))).subscribe((per) => {
         this.personaLogeada = per;
       })
