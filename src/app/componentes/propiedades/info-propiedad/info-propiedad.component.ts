@@ -28,6 +28,7 @@ export class InfoPropiedadComponent implements OnInit {
   constructor(private _propiedadRepoService: PropiedadesRepoService, private _personaRepoService: PersonasRepoService, private _alquilerRepoService: AlquileresRepoService, private ac: AppComponent) {
     this._propiedadRepoService.getAllPropiedades();
     this._personaRepoService.getAllPersonas();
+    this._alquilerRepoService.getAllAlquileres();
     this.setFecha();
   }
 
@@ -64,6 +65,7 @@ export class InfoPropiedadComponent implements OnInit {
   }
 
   verificarDatos() {
+    this._alquilerRepoService.getAllAlquileres();
     this.retorno = true;
     this.cant = 0;
     if (this.nuevoAlquiler.fechaInicio == null || this.nuevoAlquiler.fechaFin == null) {
