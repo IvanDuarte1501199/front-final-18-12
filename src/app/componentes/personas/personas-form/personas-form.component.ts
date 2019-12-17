@@ -23,8 +23,9 @@ export class PersonasFormComponent implements OnInit {
       this.nuevaPersona.dni == null ||
       this.nuevaPersona.fechaNacimiento == null ||
       this.nuevaPersona.tipo == '' ||
-      this.nuevaPersona.tipo == null) {
-      alert('complete todos los campos');
+      this.nuevaPersona.tipo == null ||
+      this.nuevaPersona.dni < 0 )  {
+      alert('complete todos los campos correctamente');
       this.retorno = false;
     } else {
       this._personaRepoService.listadoPersonas.forEach(element => {

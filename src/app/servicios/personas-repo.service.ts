@@ -16,19 +16,24 @@ export class PersonasRepoService {
     this.setPersonaLogeada();
   }
 
+  setPersonaAmostrar() {
+    if (localStorage.getItem('idPersona') === '' || localStorage.getItem('idPersona') === null) {
+      this.personaAmostrar = new Persona('', '', null, null, '');
+    } else {
+      this.getPersonaById(Number(localStorage.getItem('idPersona'))).subscribe((per) => {
+        this.personaAmostrar = per;
+      })
+    }
+  }
 
   setPersonaLogeada() {
-    if (localStorage.getItem('idLogeado') === '') {
+    if (localStorage.getItem('idLogeado') == '' || localStorage.getItem('idLogeado') === null || this.personaLogeada.id == null) {
       this.personaLogeada = new Persona('', '', null, null, '');
     } else {
       this.getPersonaById(Number(localStorage.getItem('idLogeado'))).subscribe((per) => {
         this.personaLogeada = per;
       })
-      
     }
-
-
-
   }
 
 

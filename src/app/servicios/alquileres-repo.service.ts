@@ -14,6 +14,16 @@ export class AlquileresRepoService {
 
   constructor(private _httpClient: HttpClient) { }
 
+  setAlquilerAmostrar() {
+    if (localStorage.getItem('idAlquiler') === '' || localStorage.getItem('idAlquiler') === null) {
+      this.alquilerAmostrar = new Alquiler(null,null,null,null,null);
+    } else {
+      this.getAlquilerById(Number(localStorage.getItem('idAlquiler'))).subscribe((per) => {
+        this.alquilerAmostrar = per;
+      })
+    }
+  }
+
   getAllAlquileres() {
     this._httpClient.get<Alquiler[]>('http://localhost:4000/api/alquileres')
       .subscribe(

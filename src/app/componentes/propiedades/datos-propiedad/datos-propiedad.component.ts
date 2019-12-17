@@ -61,9 +61,8 @@ export class DatosPropiedadComponent implements OnInit {
             }
           }
         } 
-        this.ver = true;
-
       });
+      this.ver = true;
     }else{
       this.ver = false;
     }

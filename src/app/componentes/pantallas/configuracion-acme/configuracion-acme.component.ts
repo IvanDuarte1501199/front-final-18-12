@@ -15,10 +15,11 @@ export class ConfiguracionAcmeComponent implements OnInit {
   ngOnInit() {
   }
   guardarDatos() {
-    if (this.valorMostrado<1 && this.valorMostrado > 0){
+    if (this.valorMostrado<=1 && this.valorMostrado >= 0){
     this.ac.porcentajeAcme = this.valorMostrado;
+    console.log('nuevo valor guardado');
     }else{
-      alert('Ingrese un valor entre 0 y 1 (excluyente)');
+      alert('Ingrese un valor entre 0 y 1');
     }
   }
 }

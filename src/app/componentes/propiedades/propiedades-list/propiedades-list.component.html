@@ -22,9 +22,9 @@
                 <td>{{ propiedad.precioXdia }}</td>
                 <td style="width: 20px;"><button (click)="verInformacion(propiedad.id)" routerLink="/datos-propiedad"
                         class="btn btn-outline-success">Datos</button></td>
-                <td style="width: 20px;"><button (click)="borrarPropiedad(propiedad.id)"
+                <td style="width: 20px;"><button (click)="formulario.limpiar()" (click)="borrarPropiedad(propiedad.id)"
                         class="btn btn-outline-danger">Borrar</button></td>
-                <td style="width: 20px;"><button (click)="formulario.editarPropiedad (propiedad.id)"
+                <td style="width: 20px;"><button (click)="formulario.editarPropiedad(propiedad.id)"
                         class="btn btn-outline-warning">Editar</button></td>
             </tr>
         </tbody>

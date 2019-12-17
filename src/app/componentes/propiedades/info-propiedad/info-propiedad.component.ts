@@ -28,7 +28,6 @@ export class InfoPropiedadComponent implements OnInit {
   constructor(private _propiedadRepoService: PropiedadesRepoService, private _personaRepoService: PersonasRepoService, private _alquilerRepoService: AlquileresRepoService, private ac: AppComponent) {
     this._propiedadRepoService.getAllPropiedades();
     this._personaRepoService.getAllPersonas();
-    //COMENTAR Y DESCOMENTAR SEGUN CONVENIENCIA DE TESTING 
     this.setFecha();
   }
 
@@ -59,6 +58,7 @@ export class InfoPropiedadComponent implements OnInit {
           console.log('se creo el alquiler: ', response);
           this.nuevoAlquiler = new Alquiler(null, null, null, null, null);
           this._personaRepoService.getAllPersonas();
+          alert('propiedad alquilada correctamente');
         });
     }
   }

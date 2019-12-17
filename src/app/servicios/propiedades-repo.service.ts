@@ -17,6 +17,16 @@ export class PropiedadesRepoService {
 
   }
 
+  setPropiedadAmostrar() {
+    if (localStorage.getItem('idPropiedad') === '' || localStorage.getItem('idPropiedad') === null) {
+      this.propiedadAmostrar = new Propiedad('', '', '', '', null, null);
+    } else {
+      this.getPropiedadById(Number(localStorage.getItem('idPropiedad'))).subscribe((per) => {
+        this.propiedadAmostrar = per;
+      })
+    }
+  }
+
   getAllPropiedades() {
     this._httpClient.get<Propiedad[]>('http://localhost:4000/api/propiedades')
       .subscribe(

@@ -21,7 +21,8 @@ export class PropiedadesFormComponent implements OnInit {
     this.retorno = true;
     if (this.nuevaPropiedad.nombre == '' ||
       this.nuevaPropiedad.ubicacion == '' ||
-      this.nuevaPropiedad.precioXdia == null) {
+      this.nuevaPropiedad.precioXdia == null ||
+      this.nuevaPropiedad.precioXdia < 0) {
       alert('complete todos los campos');
       this.retorno = false;
     }
@@ -47,6 +48,10 @@ export class PropiedadesFormComponent implements OnInit {
           });
       }
     }
+  }
+  limpiar(){
+    this.nuevaPropiedad = new Propiedad('', '', '', '', null, this._personaRepoService.personaLogeada.id);
+    this.edicion = false;
   }
 
   editarPropiedad(propiedadId: number) {

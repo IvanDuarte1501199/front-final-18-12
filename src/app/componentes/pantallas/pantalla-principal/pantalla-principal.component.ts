@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonasRepoService } from 'src/app/servicios/personas-repo.service';
+import { Persona } from 'src/app/models/Persona';
 
 @Component({
   selector: 'app-pantalla-principal',

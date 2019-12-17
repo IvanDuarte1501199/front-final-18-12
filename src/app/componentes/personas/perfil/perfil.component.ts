@@ -47,8 +47,9 @@ export class PerfilComponent implements OnInit {
       this._personaRepoService.personaLogeada.dni == null ||
       this._personaRepoService.personaLogeada.fechaNacimiento == null ||
       this._personaRepoService.personaLogeada.tipo == '' ||
-      this._personaRepoService.personaLogeada.tipo == null) {
-      alert('complete todos los campos');
+      this._personaRepoService.personaLogeada.tipo == null ||
+      this._personaRepoService.personaLogeada.dni < 0 ) {
+      alert('complete todos los campos correctamente');
       this.retorno = false;
     } else {
       this._personaRepoService.listadoPersonas.forEach(element => {

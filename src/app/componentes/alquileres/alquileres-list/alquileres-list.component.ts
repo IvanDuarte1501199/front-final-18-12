@@ -48,12 +48,15 @@ export class AlquileresListComponent implements OnInit {
   verInformacion(idAlquiler) {
     this._alquileresRepoService.getAlquilerById(idAlquiler).subscribe(
       (al) => {
+        localStorage.setItem('idAlquiler', al.id.toString());
         this._alquileresRepoService.alquilerAmostrar = al;
         this._propiedadesRepoService.getPropiedadById(al.propiedadId).subscribe(
           (pro) => {
+            localStorage.setItem('idPropiedad', al.id.toString());
             this._propiedadesRepoService.propiedadAmostrar = pro;
             this._personasRepoService.getPersonaById(pro.dueñoId).subscribe(
               (per) => {
+                localStorage.setItem('idPersona', per.id.toString());
                 this._personasRepoService.personaAmostrar = per;
               });
           }
