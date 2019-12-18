@@ -19,7 +19,7 @@ export class DatosDineroGastadoComponent implements OnInit {
   cantDiasTotal: number = 0;
   constructor(private _alquileresRepoService: AlquileresRepoService, private _propiedadesRepoService: PropiedadesRepoService, private _personasRepoService: PersonasRepoService) {
     _alquileresRepoService.getAllAlquileres();
-    _alquileresRepoService.getAllAlquileresPorPersona(_personasRepoService.personaLogeada.id);
+    _alquileresRepoService.getAllAlquileresPorPersona();
     _propiedadesRepoService.getAllPropiedades();
   }
 

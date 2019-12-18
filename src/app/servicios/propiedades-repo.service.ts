@@ -46,13 +46,13 @@ export class PropiedadesRepoService {
         });
   }
 
-  getAllPropiedadesXduenio(id: number) {
+  getAllPropiedadesXduenio() {
     this.listadoPropiedadesXduenio = [];
     this._httpClient.get<Propiedad[]>('http://localhost:4000/api/propiedades')
       .subscribe(
         (data) => {
           data.forEach(element => {
-            if (element.dueñoId == id) {
+            if (element.dueñoId == this._personasRepoService.personaLogeada.id) {
               this.listadoPropiedadesXduenio.push(element);
             }
           });

@@ -19,7 +19,7 @@ export class AlquileresDatosComponent implements OnInit {
   cantDias: number;
   constructor(private _propiedadesRepoService: PropiedadesRepoService, private _alquileresRepoService: AlquileresRepoService, private _personasRepoService: PersonasRepoService) {
     this._propiedadesRepoService.getAllPropiedades();
-    this._propiedadesRepoService.getAllPropiedadesXduenio(this._personasRepoService.personaLogeada.id);
+    this._propiedadesRepoService.getAllPropiedadesXduenio();
     this._alquileresRepoService.getAllAlquileres();
   }
 

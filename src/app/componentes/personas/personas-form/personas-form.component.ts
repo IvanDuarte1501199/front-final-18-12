@@ -16,6 +16,7 @@ export class PersonasFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   verificarDatos() {
     this.retorno = true;
     if (this.nuevaPersona.nombre == null ||
@@ -59,15 +60,5 @@ export class PersonasFormComponent implements OnInit {
       }
     }
   }
-
-  editarPersona(personaId: number) {
-    this._personaRepoService.getPersonaById(personaId)
-      .subscribe(
-        (per) => {
-          this.nuevaPersona = per;
-          this.edicion = true;
-        }
-      );
-  }
-
+  
 }

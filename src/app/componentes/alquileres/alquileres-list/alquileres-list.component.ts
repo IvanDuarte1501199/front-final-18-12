@@ -16,7 +16,8 @@ export class AlquileresListComponent implements OnInit {
 
   constructor(private _alquileresRepoService: AlquileresRepoService, private _personasRepoService: PersonasRepoService, private _propiedadesRepoService: PropiedadesRepoService) {
     this._alquileresRepoService.getAllAlquileres();
-    this._alquileresRepoService.getAllAlquileresPorPersona(_personasRepoService.personaLogeada.id);
+    this._personasRepoService.setPersonaLogeada();
+    this._alquileresRepoService.getAllAlquileresPorPersona();
     this._propiedadesRepoService.getAllPropiedades();
     this._personasRepoService.getAllPersonas();
     /*

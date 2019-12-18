@@ -36,7 +36,7 @@ export class PropiedadesFormComponent implements OnInit {
             (response) => {
               this.edicion = false;
               this.nuevaPropiedad = new Propiedad('', '', '', '', null, this._personaRepoService.personaLogeada.id);
-              this._propiedadRepoService.getAllPropiedadesXduenio(this._personaRepoService.personaLogeada.id);
+              this._propiedadRepoService.getAllPropiedadesXduenio();
             }
           );
       } else {
@@ -44,7 +44,7 @@ export class PropiedadesFormComponent implements OnInit {
           .subscribe((response) => {
             console.log('se creo la propiedad: ', response);
             this.nuevaPropiedad = new Propiedad('', '', '', '', null, this._personaRepoService.personaLogeada.id);
-            this._propiedadRepoService.getAllPropiedadesXduenio(this._personaRepoService.personaLogeada.id);
+            this._propiedadRepoService.getAllPropiedadesXduenio();
           });
       }
     }

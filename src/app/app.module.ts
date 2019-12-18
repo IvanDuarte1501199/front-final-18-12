@@ -17,7 +17,6 @@ import { PropiedadesFormComponent } from './componentes/propiedades/propiedades-
 import { InfoPropiedadComponent } from './componentes/propiedades/info-propiedad/info-propiedad.component';
 
 import { AlquileresListComponent } from './componentes/alquileres/alquileres-list/alquileres-list.component';
-import { AlquileresFormComponent } from './componentes/alquileres/alquileres-form/alquileres-form.component';
 
 import { NavVarComponent } from './componentes/nav-var/nav-var.component';
 import { PantallaLoginComponent } from './componentes/pantallas/pantalla-login/pantalla-login.component';
@@ -37,12 +36,9 @@ import { AlquileresDatosComponent } from './componentes/alquileres/alquileres-da
 
 const rutas: Routes = [
   { path: 'propiedades-list', component: PropiedadesListComponent },
-  { path: 'propiedades-form', component: PropiedadesFormComponent },
   { path: 'alquileres-list', component: AlquileresListComponent },
-  { path: 'alquileres-form', component: AlquileresFormComponent },
   { path: 'pantalla-login', component: PantallaLoginComponent },
   { path: 'personas-list', component: PersonasListComponent },
-  { path: 'personas-form', component: PersonasFormComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'info-propiedad', component: InfoPropiedadComponent },
   { path: 'config-acme', component: ConfiguracionAcmeComponent },
@@ -50,8 +46,8 @@ const rutas: Routes = [
   { path: 'datos-dinero-gastado', component: DatosDineroGastadoComponent },
   { path: 'datos-propiedad', component: DatosPropiedadComponent },
   { path: 'alquileres-datos', component: AlquileresDatosComponent },
-  { path: '', component: PantallaPrincipalComponent, pathMatch: 'full' }, 
-  { path: '**',component: PantallaPrincipalComponent }
+  { path: '', component: PantallaPrincipalComponent, pathMatch: 'full' },
+  { path: '**', component: PantallaPrincipalComponent }
 ];
 
 
@@ -62,7 +58,6 @@ const componentes = [
   PropiedadesListComponent,
   PropiedadesFormComponent,
   AlquileresListComponent,
-  AlquileresFormComponent,
   PantallaLoginComponent,
   PantallaPrincipalComponent,
   PersonasFormComponent,
